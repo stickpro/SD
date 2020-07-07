@@ -1,0 +1,13 @@
+<svg
+  class="triangle-coral_item triangle-coral_item__bottom"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="12px"
+  height="10px"
+>
+  <path
+    fill-rule="evenodd"
+    fill="rgb(253, 120, 120)"
+    d="M-0.000,-0.001 L12.000,-0.001 L6.000,9.999 L-0.000,-0.001 M9.606,1.331 C7.303,1.331 4.697,1.331 2.393,1.331 C3.547,3.254 4.850,5.427 6.000,7.342 C7.149,5.427 8.452,3.254 9.606,1.331 "
+  />
+</svg>

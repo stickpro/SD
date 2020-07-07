@@ -1,0 +1,24 @@
+{
+  "name": "SD",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "export": "nuxt export",
+    "serve": "nuxt serve"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "@nuxtjs/svg-sprite": "^0.4.11",
+    "gsap": "^3.3.4",
+    "nuxt": "^2.13.0",
+    "nuxt-fullpage.js": "^0.0.3"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.1"
+  }
+}
