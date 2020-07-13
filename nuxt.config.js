@@ -36,6 +36,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/anime.js'
   ],
   /*
   ** Auto import components
@@ -69,7 +70,5 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    extend(config, ctx) {},
-    transpile: ['gsap']
   }
 }

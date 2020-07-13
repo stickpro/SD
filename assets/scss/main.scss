@@ -1155,13 +1155,11 @@ header {
   height: 320px;
   float: left;
   margin-top: 11.2%;
-
-  .socials_icons {
-    display: grid;
-    grid-gap: 11px;
-  }
 }
-
+.socials_icons {
+  display: grid;
+  grid-gap: 11px;
+}
 .slideInUpS {
   -webkit-animation: slideInUpS 3s both;
   animation: slideInUpS 3s both;

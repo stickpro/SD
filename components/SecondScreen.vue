@@ -4,8 +4,14 @@
       <div class="offer_row offer_row__top">
         <div class="container">
           <div class="offer-letters-d">
-            <span class="offer-letters offer-letter-d">s</span>
-            <span class="offer-letters offer-letter-d">s</span>
+            <span
+              class="offer-letters offer-letter-d"
+              :class="{offerLetterDMove: config.animation}"
+            >s</span>
+            <span
+              class="offer-letters offer-letter-d"
+              :class="{offerLetterDMove: config.animation}"
+            >s</span>
           </div>
         </div>
       </div>
@@ -126,6 +132,7 @@
           <div class="offer_text-wrap">
             <div
               class="offer_text"
+              :class="{offerTextMove: config.animation}"
             >Сайт - это просто веб-страница, а вам нужен инструмент для привлечение клиентов и увелечения продаж</div>
           </div>
         </div>
@@ -157,52 +164,74 @@
           </ul>
           <div class="container">
             <div class="offer-letters-b">
-              <span class="offer-letters offer-letter-b">d</span>
-              <span class="offer-letters offer-letter-b">d</span>
+              <span
+                class="offer-letters offer-letter-b"
+                :class="{offerLetterBMove: config.animation}"
+              >d</span>
+              <span
+                class="offer-letters offer-letter-b"
+                :class="{offerLetterBMove: config.animation}"
+              >d</span>
             </div>
           </div>
         </div>
         <div class="offer_row offer_row__middlebottom-content">
           <ul class="advantages">
             <li class="advantages_item">
-              <span class="advantages_number advantages_number__one">1</span>
-              <svg
+              <span
+                class="advantages_number advantages_number__one"
+                :class="{advantagesNumberMove1: config.animation}"
+              >1</span>
+              <svg-icon
+                name="trigle"
                 class="advantages_triangle advantages_triangle__one"
-                xmlns="http://www.w3.org/2000/svg"
-                version="1.1"
-              >
-                <polygon points="0,0 15,0 7.5,13" />
-              </svg>
+                :class="{advantagesTriangleMove1: config.animation}"
+                width="15px"
+                height="13px"
+              />
               <div class="advantages_text-wrap advantages_text-wrap__one">
                 <div
                   class="advantages_text advantages_text__one"
+                  :class="{advantagesTextMove1: config.animation }"
                 >Исследование ниши и целевой аудитории</div>
               </div>
             </li>
             <li class="advantages_item">
-              <span class="advantages_number advantages_number__two">2</span>
-              <svg
+              <span
+                class="advantages_number advantages_number__two"
+                :class="{advantagesNumberMove2: config.animation}"
+              >2</span>
+              <svg-icon
+                name="trigle"
                 class="advantages_triangle advantages_triangle__two"
-                xmlns="http://www.w3.org/2000/svg"
-                version="1.1"
-              >
-                <polygon points="0,0 15,0 7.5,13" />
-              </svg>
+                :class="{advantagesTriangleMove2: config.animation}"
+                width="15px"
+                height="13px"
+              />
               <div class="advantages_text-wrap advantages_text-wrap__two">
-                <div class="advantages_text advantages_text__two">Поиск компромисных дизайн-решений</div>
+                <div
+                  class="advantages_text advantages_text__two"
+                  :class="{advantagesTextMove2: config.animation }"
+                >Поиск компромисных дизайн-решений</div>
               </div>
             </li>
             <li class="advantages_item">
-              <span class="advantages_number advantages_number__three">3</span>
-              <svg
+              <span
+                class="advantages_number advantages_number__three"
+                :class="{advantagesNumberMove3: config.animation}"
+              >3</span>
+              <svg-icon
+                name="trigle"
                 class="advantages_triangle advantages_triangle__three"
-                xmlns="http://www.w3.org/2000/svg"
-                version="1.1"
-              >
-                <polygon points="0,0 15,0 7.5,13" />
-              </svg>
+                :class="{advantagesTriangleMove3: config.animation}"
+                width="15px"
+                height="13px"
+              />
               <div class="advantages_text-wrap advantages_text-wrap__three">
-                <div class="advantages_text advantages_text__three">Современные стандарты разработки</div>
+                <div
+                  class="advantages_text advantages_text__three"
+                  :class="{advantagesTextMove3: config.animation }"
+                >Современные стандарты разработки</div>
               </div>
             </li>
           </ul>
@@ -245,6 +274,7 @@
 </template>
 <script>
 export default {
-    name: 'SecondScreen'
-}
+  name: "SecondScreen",
+  props: ["config"]
+};
 </script>
