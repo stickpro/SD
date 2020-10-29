@@ -24,11 +24,11 @@
           <span class="logo_name">Владислав</span>
           <span class="logo_surname">Булгаков</span>
         </div>
-        <div
+        <nuxt-link
           class="portfolio-word"
           :class="{ slideInLeftPL: config.animation }"
-          @click="config.fullpageApi.moveTo(3)"
-        >Портфолио</div>
+          to="/portfolio"
+        >Портфолио</nuxt-link>
         <a
           class="email"
           :class="{ slideInLeftEL: config.animation }"
@@ -40,14 +40,14 @@
           :class="{ slideInRightT: config.animation }"
           class="tel"
         >+7 (918) 750-95-00</a>
-        <a class="starter" :class="{ slideInRightS: config.animation }">
+        <div class="starter" :class="{ slideInRightS: config.animation }" @click="toggleModal">
           Начать работу
           <span class="line-1"></span>
           <span class="line-2"></span>
           <span class="line-3"></span>
           <span class="line-4"></span>
-        </a>
-        <div class="hamburger js-MenuItem" :class="{ slideInRightH: config.animation }">
+        </div>
+        <div class="hamburger js-MenuItem" :class="{ slideInRightH: config.animation }" @click="toggleMenu">
           <span class="hamburger_line hamburger_line__up"></span>
           <span class="hamburger_line hamburger_line__middleUp"></span>
           <span class="hamburger_line hamburger_line__middleBottom"></span>
@@ -55,16 +55,16 @@
         </div>
       </div>
       <div class="intro-portfolio-word-wrap">
-        <a class="intro-portfolio-word" href="#thirdPage">Портфолио</a>
+        <nuxt-link to="/portfolio" class="intro-portfolio-word">Портфолио</nuxt-link>
       </div>
       <div class="starter-mobile-wrap">
-        <a class="starter starter-mobile">
+        <div class="starter starter-mobile" @click="toggleModal">
           Начать работу
           <span class="line-1"></span>
           <span class="line-2"></span>
           <span class="line-3"></span>
           <span class="line-4"></span>
-        </a>
+        </div>
       </div>
       <div class="socials" :class="{ slideInUpS: config.animation }">
         <div class="socials_icons">
@@ -85,15 +85,15 @@
       </div>
       <div class="intro">
         <h1>
-          <span class="design split">Stick</span>
-          <span class="bureau split">Design</span>
-          <div class="intro_text split">Владислав&nbsp;Булгаков</div>
+          <span class="design">Stick</span>
+          <span class="bureau">Design</span>
+          <div class="intro_text">Владислав&nbsp;Булгаков</div>
         </h1>
       </div>
       <div class="menuright-wrap">
         <div class="menuright-wrap2">
           <div class="menuright" :class="{ slideInDownM: config.animation, bw: config.menuBlack }">
-            <div  v-for="menu in menuFullpage" :key="menu.index"  class="menuright_item" @click="config.fullpageApi.moveTo(menu.number)" :class="{ active: config.menuIndex == menu.index }" > 
+            <div  v-for="menu in menuFullpage" :key="menu.index"  class="menuright_item" @click="config.fullpageApi.moveTo(menu.number)" :class="{ active: config.menuIndex == menu.index }" >
               <span class="menuright_number" >
                 <span class="zero">0</span>
                 <span class="digit">
@@ -139,77 +139,23 @@
         </div>
       </div>
     </div>
-    <!-- Меню Гамбургера -->
-    <div class="hamburgerMenu">
-      <div class="hamburgerMenu_wrap">
-        <div class="hamburgerMenu_top-wrap js-MenuItem">
-          <div class="hamburgerMenu_top">
-            <div class="container">
-              <a class="logo hamburgerMenu_logo js-MenuItem" href="#firstPage">
-                <span class="logo_letters">s</span>
-                <span class="logo_letters logo_letters__b">d</span>
-                <div class="logo_stroke">
-                  <span class="logo_dash"></span>
-                  <span class="logo_dash"></span>
-                </div>
-                <span class="logo_name">Владислав</span>
-                <span class="logo_surname">Булгаков</span>
-              </a>
-              <div class="hamburgerMenu-icon hamburger-offer js-MenuItem">
-                <span class="hamburger_line hamburger_line__up"></span>
-                <span class="hamburger_line hamburger_line__middleUp"></span>
-                <span class="hamburger_line hamburger_line__middleBottom"></span>
-                <span class="hamburger_line hamburger_line__bottom"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <ul class="hamburgerMenu_list">
-          <li class="hamburgerMenu_item hamburgerMenu__item1 js-MenuItem clearfix">
-            <svg class="hamburgerMenu_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
-              <polygon points="0,0 13,7.5 0,15" />
-            </svg>
-            <p>Главная</p>
-          </li>
-          <li class="hamburgerMenu_item hamburgerMenu__item2 js-MenuItem clearfix">
-            <svg class="hamburgerMenu_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
-              <polygon points="0,0 13,7.5 0,15" />
-            </svg>
-            <p>Основные принципы</p>
-          </li>
-          <li class="hamburgerMenu_item hamburgerMenu__item3 js-MenuItem clearfix">
-            <svg class="hamburgerMenu_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
-              <polygon points="0,0 13,7.5 0,15" />
-            </svg>
-            <p>Портфолио</p>
-          </li>
-          <li class="hamburgerMenu_item hamburgerMenu__item4 js-MenuItem clearfix">
-            <svg class="hamburgerMenu_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
-              <polygon points="0,0 13,7.5 0,15" />
-            </svg>
-            <p>Направления деятельности</p>
-          </li>
-          <li class="hamburgerMenu_item hamburgerMenu__item5 js-MenuItem clearfix">
-            <svg class="hamburgerMenu_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
-              <polygon points="0,0 13,7.5 0,15" />
-            </svg>
-            <p>Контакты</p>
-          </li>
-        </ul>
-        <div class="hamburgerMenu_bottom js-MenuItem"></div>
-      </div>
-    </div>
   </header>
 </template>
 <script>
+import { mapMutations } from 'vuex'
+
+import Menu from "~/components/Menu";
 export default {
   name: "FirstScreen",
   props: ["config"],
+  components: {
+    Menu
+  },
   data() {
     return {
       text: null,
       split: null,
+      open: false,
       menuFullpage: [
         {index: 0, number: 1 },
         {index: 1, number: 2 },
@@ -219,13 +165,33 @@ export default {
       ]
     };
   },
-  mounted() {
-    console.log(this.config.menuIndex)
-  },
-  method: {
+  methods: {
     random(min, max) {
       return Math.random() * (max - min) + min;
-    }
+    },
+    splitAnm() {
+      const split = new SplitText('stick')
+      split.chars.each(function(){
+        TweenMax.from((this), 2.5, {
+          opacity: 0,
+          x: this.random(-500, 500),
+          y: this.random(-500, 500),
+          z: this.random(-500, 500),
+          scale: .05,
+          delay: -2.4,
+          yoyo: true,
+          repeat: 2,
+          repeatDelay: 0
+        });
+      });
+    },
+    ...mapMutations({
+      toggleMenu: 'app/toggleMenu',
+      toggleModal: 'app/toggleModal'
+    })
   }
 };
 </script>
+<style>
+
+</style>

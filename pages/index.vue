@@ -1,35 +1,48 @@
 <template>
-  <full-page :options="options" ref="fullpage">
-    <FirstScreen :config.sync="firstPage" />
-    <SecondScreen :config.sync="secondPage" />
-    <PortfolioScreen :config.sync="portfolioPage" />
-  </full-page>
+  <div>
+    <full-page :options="options" ref="fullpage" id="fullpage">
+      <FirstScreen :config.sync="firstSection"/>
+      <SecondScreen :config.sync="secondSection"/>
+      <PortfolioScreen :config.sync="portfolioSection"/>
+      <ServiceScreen :config.sync="serviceSection"/>
+      <FooterScreen :config.sync="footerSection"/>
+      <Menu :config.sync="menuSection"/>
+      <ModalWork/>
+    </full-page>
+  </div>
 </template>
 
 <script>
 import FirstScreen from "@/components/FirstScreen";
 import SecondScreen from "@/components/SecondScreen";
 import PortfolioScreen from "@/components/PortfolioScreen";
+import ServiceScreen from "@/components/ServiceScreen";
+import FooterScreen from "@/components/FooterScreen";
+import ModalWork from "@/components/ModalWork";
+
 export default {
+  transition: 'intro',
   components: {
     FirstScreen,
     SecondScreen,
-    PortfolioScreen
+    PortfolioScreen,
+    ServiceScreen,
+    FooterScreen,
+    ModalWork
   },
   data() {
     return {
       options: {
-        licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
         menu: "#menuright",
         css3: false,
         scrollingSpeed: 1200,
-        anchors: [
-          "firstPage",
-          "secondPage",
-          "thirdPage",
-          "fourthPage",
-          "fifthPage"
-        ],
+        // anchors: [
+        //   "firstSection",
+        //   "secondSection",
+        //   "thirdPage",
+        //   "fourthPage",
+        //   "fifthPage"
+        // ],
         responsiveWidth: 768,
         responsiveHeight: 480,
         afterLoad: this.afterLoad,
@@ -37,53 +50,98 @@ export default {
       },
       animation: false,
       logoAnimated: true,
-      firstPage: {
+      firstSection: {
         animation: true,
         menuBlack: false,
         menuIndex: 0,
         fullpageApi: {}
       },
-      secondPage: {
-        animation: false,
-        timeOutAnim: false,
-        fullpageApi: {}
-      },
-      portfolioPage: {
+      secondSection: {
         animation: false,
         fullpageApi: {}
       },
+      portfolioSection: {
+        animation: false,
+        timeOutAnim: true,
+        fullpageApi: {}
+      },
+      serviceSection: {
+        animation: false,
+        timeOutAnim1: false,
+        timeOutAnim2: false,
+        timeOutAnim3: false,
+        timeOutAnim4: false,
+        timeOutAnim5: false,
+        timeOutAnim6: false,
+        timeOutAnim7: false,
+        fullpageApi: {},
+      },
+      footerSection: {
+        animation: false,
+        goAnimation: false,
+        fullpageApi: {},
+      },
+      menuSection: {
+        fullpageApi: {},
+      }
     };
   },
   methods: {
-    afterLoad: function(origin, destination, direction) {
+    afterLoad: function (origin, destination, direction) {
       if (destination.index == 1) {
-        this.firstPage.animation = false;
-        this.firstPage.menuBlack = true;
+        this.firstSection.animation = false;
+        //this.firstSection.menuBlack = true;
         //second Page
-        this.secondPage.animation = true;
+        this.secondSection.animation = true;
       }
-
       if (destination.index == 2) {
-        this.portfolioPage.animation = true
-        setTimeout(this.portfolioPage.timeOutAnim = true, 4500)
-        this.firstPage.menuBlack = false;
+        this.portfolioSection.animation = true;
+        setTimeout((this.portfolioSection.timeOutAnim = false), 4500);
+        this.firstSection.menuBlack = false;
+      }
+      if (destination.index == 3) {
+        this.serviceSection.animation = true
+        this.firstSection.menuBlack = true
+        setTimeout(() => (this.serviceSection.timeOutAnim1 = true), 1100)
+        setTimeout(() => (this.serviceSection.timeOutAnim2 = true), 1900)
+        setTimeout(() => (this.serviceSection.timeOutAnim3 = true), 2700)
+        setTimeout(() => (this.serviceSection.timeOutAnim4 = true), 3500)
+        setTimeout(() => (this.serviceSection.timeOutAnim5 = true), 4400)
+        setTimeout(() => (this.serviceSection.timeOutAnim6 = true), 7000)
+      }
+      if (destination.index == 4) {
+        this.firstSection.menuBlack = false
+        this.footerSection.animation = true
+        this.footerSection.goAnimation = true
 
       }
     },
-    onLeave: function(origin, destination, direction) {
-      this.firstPage.menuIndex = destination.index;
+    onLeave: function (origin, destination, direction) {
+      this.firstSection.menuIndex = destination.index;
       if (destination.index == 0) {
-        this.firstPage.animation = true;
-        this.firstPage.menuBlack = false;
-
+        this.firstSection.animation = true;
+        this.firstSection.menuBlack = false;
       }
-
-      if (destination.index == 2) {
+      if (origin.index == 0 && destination.index == 1) {
+        this.firstSection.menuBlack = true
+      }
+      if (destination.index == 4 && origin.index == 3) {
       }
     }
   },
   mounted() {
-    this.firstPage.fullpageApi = this.$refs.fullpage.api;
+    this.firstSection.fullpageApi = this.$refs.fullpage.api;
+    this.secondSection.fullpageApi = this.$refs.fullpage.api;
+    this.portfolioSection.fullpageApi = this.$refs.fullpage.api;
+    this.serviceSection.fullpageApi = this.$refs.fullpage.api;
+    this.footerSection.fullpageApi = this.$refs.fullpage.api;
+
+    this.menuSection.fullpageApi = this.$refs.fullpage.api;
   }
 };
 </script>
+<style lang="scss" scoped>
+::v-deep #fullpage {
+  @import '@/assets/scss/main.scss';
+}
+</style>

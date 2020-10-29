@@ -1,6 +1,4 @@
 @import './normalize';
-@import './font';
-
 
 body {
   font-family: Roboto, sans-serif;
@@ -1072,7 +1070,6 @@ header {
 }
 
 .hamburgerMenu {
-  display: none;
   position: fixed;
   top: 0;
   z-index: 300;
@@ -1394,7 +1391,7 @@ h1 {
   font-size: 14px;
   font-weight: 300;
   text-transform: uppercase;
-  margin-right: 7px;
+  margin-right: 6px;
 }
 
 .menuright .active {
@@ -4742,9 +4739,9 @@ svg.services-headline {
   display: block;
 }
 
-.services-item_description1 {
-  opacity: 0;
-}
+// .services-item_description1 {
+//   opacity: 0;
+// }
 
 .long-desc, .short-desc {
   width: 290px;
@@ -4818,6 +4815,7 @@ svg.services-headline {
 .services-portfolio-word {
   font-size: 11px;
   color: #2d2d2d;
+  cursor: pointer;
 }
 
 .hamburger-services .hamburger_line {
@@ -5414,8 +5412,8 @@ svg.start_headline {
 }
 
 .order {
-  display: none;
-  position: absolute;
+  display: block;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 500;

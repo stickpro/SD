@@ -247,8 +247,8 @@
     </div>
     <div class="container">
       <div class="offer-frame-top">
-        <a class="offer-portfolio-word" href="#thirdPage">Портфолио</a>
-        <div class="hamburger hamburger-offer js-MenuItem">
+        <div class="offer-portfolio-word" @click="config.fullpageApi.moveSectionDown()">Портфолио</div>
+        <div class="hamburger hamburger-offer js-MenuItem" @click="toggleMenu">
           <span class="hamburger_line hamburger_line__up"></span>
           <span class="hamburger_line hamburger_line__middleUp"></span>
           <span class="hamburger_line hamburger_line__middleBottom"></span>
@@ -257,7 +257,7 @@
       </div>
       <div class="offer-line"></div>
       <div class="offer-footer">
-        <a class="logo" href="#firstPage">
+        <div class="logo"  @click="config.fullpageApi.moveTo(1)">
           <span class="logo_letters">s</span>
           <span class="logo_letters logo_letters__b">d</span>
           <div class="logo_stroke">
@@ -266,15 +266,22 @@
           </div>
           <span class="logo_name">Владислав</span>
           <span class="logo_surname">Булгаков</span>
-        </a>
+        </div>
         <div class="lang">ru</div>
       </div>
     </div>
   </section>
 </template>
 <script>
+import {mapMutations} from "vuex";
+
 export default {
   name: "SecondScreen",
-  props: ["config"]
+  props: ["config"],
+  methods: {
+  ...mapMutations({
+      toggleMenu: 'app/toggleMenu'
+    })
+  }
 };
 </script>

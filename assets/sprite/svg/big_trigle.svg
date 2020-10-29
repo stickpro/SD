@@ -1,0 +1,15 @@
+ <svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+  <path
+    fill-rule="evenodd"
+    stroke="rgb(255, 255, 255)"
+    stroke-width="1px"
+    stroke-linecap="butt"
+    stroke-linejoin="miter"
+    opacity="0.251"
+    fill="none"
+    d="M643.949,0.811 L410.791,609.361 L0.683,102.301 L643.949,0.811 Z"
+  />
+</svg>

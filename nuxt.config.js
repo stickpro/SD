@@ -29,14 +29,14 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/scss/main.scss'
+    '@/assets/scss/global.scss'
   ],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '~/plugins/anime.js'
+    '~/plugins/VueObserver.js',
   ],
   /*
   ** Auto import components

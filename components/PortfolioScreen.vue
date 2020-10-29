@@ -40,7 +40,7 @@
           </div>
           <div class="socials_text">Давайте знакомиться</div>
         </div>
-        <div class="hamburger hamburger-portfolio js-MenuItem">
+        <div class="hamburger hamburger-portfolio js-MenuItem" @click="toggleMenu">
           <span class="hamburger_line hamburger_line__up"></span>
           <span class="hamburger_line hamburger_line__middleUp"></span>
           <span class="hamburger_line hamburger_line__middleBottom"></span>
@@ -175,7 +175,7 @@
 
       <div class="portfolio-footer">
         <div class="portfolio-footer_left">
-          <a class="logo" href="#firstPage">
+          <div class="logo" @click="config.fullpageApi.moveTo(1)">
             <span class="logo_letters">s</span>
             <span class="logo_letters logo_letters__b">d</span>
             <div class="logo_stroke">
@@ -184,7 +184,7 @@
             </div>
             <span class="logo_name">Владислав</span>
             <span class="logo_surname">Булгаков</span>
-          </a>
+          </div>
           <a class="portfolio-watch">
             <div class="portfolio-watch_text">Смотреть все</div>
             <div class="portfolio-watch_triangles">
@@ -207,7 +207,7 @@
       <div class="wow_bg-bl"></div>
       <div class="wow_bg-coral"></div>
     </div>
-    <div class="wow_vtext-wrap vtext-left-wrap">
+    <div class="wow_vtext-wrap vtext-left-wrap" v-if="config.timeOutAnim">
       <div class="wow_vtext vtext-left" :class="{wowVtextCoralUp: config.animation}">
         <div class="wow_vtext-inner">inqhwakzfup</div>
       </div>
@@ -237,6 +237,8 @@
   </section>
 </template>
 <script>
+import {mapMutations} from "vuex";
+
 export default {
   name: "PortfolioScreen",
   props: ["config"],
@@ -289,7 +291,10 @@ export default {
         easing: "easeOutElastic",
         elasticity: 400
       });
-    }
+    },
+    ...mapMutations({
+      toggleMenu: 'app/toggleMenu'
+    })
   }
 };
 </script>
