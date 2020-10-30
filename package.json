@@ -16,7 +16,6 @@
     "gsap": "^3.5.1",
     "nuxt": "^2.13.0",
     "nuxt-fullpage.js": "^0.0.3",
-    "vue-animejs": "^2.1.1",
     "vue-observe-visibility": "^0.4.6"
   },
   "devDependencies": {
