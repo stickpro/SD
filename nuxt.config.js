@@ -1,3 +1,4 @@
+require('dotenv').config()
 
 export default {
   /*
@@ -10,6 +11,15 @@ export default {
   ** See https://nuxtjs.org/api/configuration-target
   */
   target: 'server',
+
+  server: {
+    port: process.env.PORT,
+    host: process.env.HOST,
+    serverUrl: process.env.API_URL
+  },
+  env: {
+    serverUrl: process.env.API_URL
+  },
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
@@ -36,7 +46,8 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '~/plugins/VueObserver.js',
+    '@/plugins/anime.js',
+    '@/plugins/VueObserver.js',
   ],
   /*
   ** Auto import components
@@ -59,12 +70,50 @@ export default {
     'nuxt-fullpage.js',
     // svg sprite
     '@nuxtjs/svg-sprite',
+    // Doc: https://cloudinary.nuxtjs.org/
+    '@nuxtjs/cloudinary',
+    '@nuxtjs/dotenv',
+    'nuxt-i18n',
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+    baseUrl: process.env.API_URL,
+    credentials: true,
+    header: {
+      common: {
+        'X-localization': 'ru'
+      }
+    },
+  },
+
+  cloudinary: {
+    cloudName: process.env.CLOUDNAME,
+    useComponent: true
+  },
+
+  /* i18n */
+  i18n: {
+    parsePages: false,
+    locales: [
+      {
+        code: 'ru',
+        file: 'ru-RU.js',
+        name: 'Русский'
+      },
+      {
+        code: 'en',
+        file: 'en-EN.js',
+        name: 'English'
+      }
+    ],
+    lazy: true,
+    langDir: 'lang/',
+    defaultLocale: 'ru',
+  },
+
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/

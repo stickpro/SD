@@ -475,7 +475,7 @@
                             </span>
               </nuxt-link>
               <div class="copyright">2018 Все права защищены</div>
-              <div @click="scrollTo" class="goup d-flex" href="#header">
+              <div @click="scrollTo" class="goup d-flex">
                 <p class="goup_text">
                   Наверх
                 </p>

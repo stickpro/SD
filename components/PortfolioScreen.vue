@@ -26,16 +26,16 @@
         <div>
           <div class="socials_icons">
             <a href="https://t.me/stick_qwe">
-              <svg-icon name="telegram" height="14px" width="14px" />
+              <svg-icon name="telegram" height="14px" width="14px"/>
             </a>
             <a href="https://api.whatsapp.com/send?phone=79187509500">
-              <svg-icon name="whatsapp" height="14px" width="14px" />
+              <svg-icon name="whatsapp" height="14px" width="14px"/>
             </a>
             <a href="https://vk.com/id383968">
-              <svg-icon name="vk" height="14px" width="14px" />
+              <svg-icon name="vk" height="14px" width="14px"/>
             </a>
             <a href="skype:stick_25?chat">
-              <svg-icon name="skype" height="14px" width="14px" />
+              <svg-icon name="skype" height="14px" width="14px"/>
             </a>
           </div>
           <div class="socials_text">Давайте знакомиться</div>
@@ -57,50 +57,37 @@
               <div
                 class="headline portfolioTitle1"
                 :class="{portfolioHeadlineAnime1:config.animation }"
-              >такого</div>
+              >такого
+              </div>
               <div
                 class="headline portfolioTitle2"
                 :class="{portfolioHeadlineAnime2:config.animation }"
-              >я еще</div>
+              >я еще
+              </div>
               <div
                 class="headline portfolioTitle3"
                 :class="{portfolioHeadlineAnime3:config.animation }"
-              >не видел</div>
+              >не видел
+              </div>
             </div>
             <div class="portfolio-content_list">
               <div class="portfolio-content_items clearfix">
-                <a
-                  target="_blank"
-                  class="portfolio-item"
-                  href="https://stick-design.ru/portfolio/shagova"
-                >
+                <nuxt-link v-for="portfolio in portfolios" :key="portfolio.id" class="portfolio-item"
+                           :to="localePath({name: 'portfolio-slug', params: { slug: portfolio.slug }})">
                   <div class="portfolio-item_preview">
-                    <img
-                      src="https://stick-design.ru/storage/portfolios/October2019/PquUGeciiv7XKUczZg0K.png"
-                      alt
+                  <cld-image
+                      :public-id="portfolio.image.slug"
+                      width="290"
+                      crop="fill"
+                      fetchFormat="auto"
+                      quality="auto"
                     />
                   </div>
                   <div class="portfolio-item_text">
-                    <div class="portfolio-item_name">shagova.photo</div>
-                    <div class="portfolio-item_category">portfolio</div>
+                    <div class="portfolio-item_name">{{ portfolio.title }}</div>
+                    <div class="portfolio-item_category">{{ portfolio.filter.name }}</div>
                   </div>
-                </a>
-                <a
-                  target="_blank"
-                  class="portfolio-item"
-                  href="https://stick-design.ru/portfolio/smallhd"
-                >
-                  <div class="portfolio-item_preview">
-                    <img
-                      src="https://stick-design.ru/storage/portfolios/October2019/gCufv7sBp0eoyUFX7fPH.jpg"
-                      alt
-                    />
-                  </div>
-                  <div class="portfolio-item_text">
-                    <div class="portfolio-item_name">SmallHD</div>
-                    <div class="portfolio-item_category">e-commerce</div>
-                  </div>
-                </a>
+                </nuxt-link>
                 <a
                   target="_blank"
                   class="portfolio-item"
@@ -186,16 +173,16 @@
             <span class="logo_surname">Булгаков</span>
           </div>
           <a class="portfolio-watch">
-            <div class="portfolio-watch_text">Смотреть все</div>
+            <nuxt-link to="/portfolio" class="portfolio-watch_text">Смотреть все</nuxt-link>
             <div class="portfolio-watch_triangles">
               <svg class="portfolio_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                <polygon points="0,0 13,7.5 0,15" />
+                <polygon points="0,0 13,7.5 0,15"/>
               </svg>
               <svg class="portfolio_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                <polygon points="0,0 11,6.5 0,13" />
+                <polygon points="0,0 11,6.5 0,13"/>
               </svg>
               <svg class="portfolio_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                <polygon points="0,0 10,5.5 0,11" />
+                <polygon points="0,0 10,5.5 0,11"/>
               </svg>
             </div>
           </a>
@@ -226,18 +213,20 @@
     <div
       class="wow_word wow_word-bottom-right"
       :class="{wowWordBottomRightMove: config.animation}"
-    >wow</div>
+    >wow
+    </div>
     <div
       class="wow_word wow_word-bottom-left"
       :class="{wowWordBottomLeftMove: config.animation}"
-    >wow</div>
+    >wow
+    </div>
     <div class="wow_line wow_white-line" :class="{wowWhiteLineMove: config.animation}"></div>
     <div class="wow_line wow_black-line" :class="{wowBlackLineMove: config.animation}"></div>
     <div class="wow_line wow_coral-line" :class="{wowCoralLineMove: config.animation}"></div>
   </section>
 </template>
 <script>
-import {mapMutations} from "vuex";
+import {mapActions, mapGetters, mapMutations} from "vuex";
 
 export default {
   name: "PortfolioScreen",
@@ -246,6 +235,9 @@ export default {
     portfolioBgTop: null
   }),
   methods: {
+    ...mapActions({
+      loadPortfolios: 'portfolio/loadPortfolios'
+    }),
     paralaxIn() {
       const portfolioBgTop = this.$el.getElementsByClassName(
         "portfolio-wow-big"
@@ -295,6 +287,14 @@ export default {
     ...mapMutations({
       toggleMenu: 'app/toggleMenu'
     })
-  }
+  },
+  computed: {
+    ...mapGetters({
+      portfolios: 'portfolio/getPortfolios'
+    })
+  },
+  created() {
+    this.loadPortfolios({show_home: true})
+  },
 };
 </script>

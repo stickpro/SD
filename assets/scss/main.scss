@@ -2850,7 +2850,7 @@ h1 {
 
   img {
     width: 290px;
-    height: 190px;
+    height: auto;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
     -webkit-transition: 1s;
@@ -2936,6 +2936,7 @@ h1 {
   font-size: 14px;
   font-weight: 700;
   letter-spacing: .23em;
+  color: #2d2d2d;
   text-transform: uppercase;
 }
 
