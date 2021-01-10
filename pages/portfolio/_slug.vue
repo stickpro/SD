@@ -56,41 +56,30 @@
     <section class="bridal main" id="bridal">
       <div class="container-fluid_plain">
         <div class="row">
-<!--          @foreach ($portfolio->gallery as $i => $photo)-->
-<!--          @if ($i%2 == 0)-->
-<!--          <div class="col-lg-8 col-12">-->
-<!--            @if($photo['title'])-->
-<!--            <div class="bridal-text">{{ $photo['title'] }}<span> site</span></div>-->
-<!--            @endif-->
-<!--            <div class="bridal__item bridal__item_center slide-left">-->
-<!--              <img src="/storage/{{ $photo['name'] }}" alt="{{ $photo['title'] }}"  class="slideimg-left"></div>-->
-<!--          </div>-->
-<!--          @elseif ($i%2 == 1)-->
-<!--          <div class="col-lg-9 col-12 ml-auto">-->
-<!--            <div class="bridal__item bridal__item_second slide-right">-->
-<!--              <img src="/storage/{{ $photo['name'] }}" alt="{{ $photo['title'] }}" class="slideimg-right"></div>-->
-<!--            <h3 class="case-title">{{ $photo['title'] }}</h3>-->
-<!--          </div>-->
-<!--          @endif-->
-<!--          @endforeach-->
-          <div v-for="(image,index) in portfolio.images">
-            <div :class="`${index%2 == 0 ? 'col-lg-8': 'col-lg-9 ml-auto'} col-12`">
-              <div v-if="index%2 == 0" class="bridal-text">{{ image.title }}<span> site</span></div>
-                <div v-if="index%2 == 0" class="bridal__item bridal__item_center slide-left slideInLeft animated"
-                     :class="isVisibleImage[index] ? 'slideInLeft animated' : '' "
-                     v-observe-visibility="visibilityChanged(true, index)">
-                  <img :src="imgMockup(image.slug)" class="slideimg-left"
-                       :class="isVisibleImage[index] ? 'slideInLeft animated' : '' " />
-                </div>
-                <div v-else-if="index%2 == 1" class="bridal__item bridal__item_second slide-right"
-                     :class="isVisibleImage[index] ? 'slideInRight animated' : ''"
-                     v-observe-visibility="visibilityChanged(true, index)">
-                  <img :src="imgMockup(image.slug)" class="slideimg-right"
-                       :class="isVisibleImage[index] ? 'slideInRight animated' : ''" />
-                </div>
-                <h3 v-if="index%2 == 1" class="case-title">{{ image.title }}</h3>
+          <template v-for="(image,index) in portfolio.images">
+            <div :class="`${index%2 === 0 ? 'col-lg-8': 'col-lg-9 ml-auto'} col-12`">
+              <div v-if="index%2 === 0" class="bridal-text">{{ image.title }}<span> site</span></div>
+              <div v-if="index%2 === 0"
+                   class="bridal__item bridal__item_center slide-left"
+                   :class="{ 'visible animated slideInLeft': image.visible, 'invisible': !image.visible }"
+                   v-observe-visibility="{ callback: (isVisible, entry) => visibilityChanged(isVisible, entry, index), once: true, }">
+                <img :src="imgMockup(image.slug)"
+                     class="slideimg-left"
+                     :class="{ 'animated slideInLeft': image.visible, 'invisible': !image.visible }"
+                     />
+              </div>
+              <div v-else-if="index%2 === 1"
+                   class="bridal__item bridal__item_second slide-right"
+                   :class="{ 'visible animated slideInRight': image.visible, 'invisible': !image.visible }"
+                   v-observe-visibility="{ callback: (isVisible, entry) => visibilityChanged(isVisible, entry, index), once: true, }">
+                <img :src="imgMockup(image.slug)"
+                     class="slideimg-right"
+                     :class="{ 'visible animated slideInRight': image.visible, 'invisible': !image.visible }"
+                />
+              </div>
+              <h3 v-if="index%2 === 1" class="case-title">{{ image.title }}</h3>
             </div>
-          </div>
+          </template>
         </div>
       </div>
     </section>
@@ -123,18 +112,21 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import {mapGetters, mapMutations} from "vuex";
 
 export default {
   name: "slug",
+  transition: 'intro',
   computed: {
     ...mapGetters({
       portfolio: 'portfolio/getPortfolio'
     })
   },
-  data: () => ({
-    isVisibleImage: Array.apply(null, Array(30)).map(Number.prototype.valueOf,0).fill(false),
-  }),
+  data() {
+    return {
+      isVisibleImage: [false, false, false]
+    }
+  },
   async asyncData({store, params, error}) {
     try {
       await store.dispatch('portfolio/loadPortfolio', params.slug)
@@ -143,17 +135,21 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('portfolio', ['SET_IMAGE_VISIBLE']),
     imgMockup(src) {
       return this.$cloudinary.image.url(src, {
         fetchFormat: 'auto',
         quality: '100',
       })
     },
-    visibilityChanged(isVisible, index) {
-      this.isVisibleImage[index] = isVisible
-      console.log(isVisible, index, this.isVisibleImage)
+    visibilityChanged(isVisible, entry, index) {
+      this.SET_IMAGE_VISIBLE({ index, isVisible })
+      console.log(isVisible, index, this.portfolio.images)
     }
   },
+  mounted() {
+    //this.isVisibleImage = Array.apply(null, Array(30)).map(Number.prototype.valueOf,0).fill(false)
+  }
 }
 </script>
 
