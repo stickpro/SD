@@ -3,7 +3,7 @@
     <header class="header" id="header" ref="header">
       <nav class="nav-bar">
         <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap">
-          <nuxt-link to="/" class="logo animated fadeInLeft">
+          <nuxt-link :to="localePath('index')" class="logo animated fadeInLeft">
 
             <span class="logo_letters">s</span>
             <span class="logo_letters logo_letters__b">d</span>
@@ -12,10 +12,10 @@
               <span class="logo_dash"></span>
             </div>
             <span class="logo_name">
-                        Владислав
+                        {{ $t('me.name') }}
                     </span>
             <span class="logo_surname">
-                        Булгаков
+                        {{ $t('me.lastname') }}
                     </span>
           </nuxt-link>
           <div class="contacts animated fadeInRight">
@@ -30,19 +30,22 @@
             <div class="col-lg-12">
               <div class="offer">
                 <h1 class="offer__heading zoomIn animated"><span class="offer__glich"><span
-                  class="offer__c">с</span>озд<span class="offer__a letter-a"></span>ни<span class="offer__e"
-                                                                                             data-text="е">е</span></span>
-                  <span class="offer__glich-secondary" data-text="сайтов">с<span class="letter-a offer__aa"></span>йтов</span>
+                  class="offer__c">{{ $t('portfolio_page.title1') }}</span>{{ $t('portfolio_page.title2') }}
+                    <span v-if="$i18n.locale === 'ru'" class="offer__a letter-a"></span>
+                      {{ $t('portfolio_page.title3') }}
+                    <span class="offer__e">{{ $t('portfolio_page.title4') }}</span>
+                  </span>
+                  <span class="offer__glich-secondary">{{ $t('portfolio_page.title5') }}
+                    <span v-if="$i18n.locale === 'ru'" class="letter-a offer__aa"></span>{{ $t('portfolio_page.title6') }}</span>
                 </h1>
 
-                <div class="offer__desc desc fadeInRight animated"> Если вам надоело изучать информацию о создании
-                  сайтов.<br>
-                  Можете успокоиться - вы попали в нужное место к нужному человеку.
+                <div class="offer__desc desc fadeInRight animated"> {{ $t('portfolio_page.desc1') }}<br>
+                  {{ $t('portfolio_page.desc2') }}
                 </div>
                 <div class="offer__wrapper d-sm-flex justify-content-center">
-                  <button class="consult-btn button glitch-btn" data-text="заказать консультацию"><span>заказать консультацию</span>
+                  <button class="consult-btn button glitch-btn" @click="toggleModal"><span>{{ $t('portfolio_page.consult') }}</span>
                   </button>
-                  <nuxt-link to="/" class="offer__more button">узнать больше
+                  <nuxt-link :to="localePath('index')" class="offer__more button">{{ $t('portfolio_page.learn') }}
                     <span class="line-1"></span>
                     <span class="line-2"></span>
                     <span class="line-3"></span>
@@ -82,13 +85,14 @@
                   }"
                  :class="isVisible ? 'zoomIn animated' : ''" class="section-heading proposal__heading">
               <span
-                class="proposal__span">вс<span
-                class="proposal__e letter-a"></span>,</span> <span class="proposal__span-second"
-                                                                   data-text="что вы ищете">что вы ищете</span>
+                class="proposal__span">{{ $t('portfolio_page.we')}}
+                <span class="proposal__e letter-a" v-if="$i18n.locale === 'ru'"></span>,
+              </span>
+              <span class="proposal__span-second">{{ $t('portfolio_page.want') }}</span>
               <span>
-                            <span class="proposal__bg" data-text="есть у нас.">есть у н<span
-                              class="letter-a proposal__a"></span>с.</span>
-                        </span>
+              <span class="proposal__bg">{{ $t('portfolio_page.have') }}
+                <span class="letter-a proposal__a"></span>{{  $t('portfolio_page.for')}}.</span>
+              </span>
             </div>
           </div>
           <div class="col-xl-6 col-12 d-flex justify-content-center align-items-end">
@@ -99,9 +103,7 @@
                      once: true,
                   }"
                  :class="isVisible ? 'fadeInRight animated' : ''">
-              Обычно, в этом месте компании рассказывают о том,
-              какие типы сайтов они делают,
-              а так же непонятные другие слова типа php, nginx, docker они знают
+            {{ $t('portfolio_page.proposal') }}
             </div>
           </div>
           <div class="col-12 d-flex justify-content-center">
@@ -117,8 +119,8 @@
                     callback: visibleDots2,
                      once: true,
                   }"
-                  :class="dots2 ? 'fadeInLeft animated' : ''">Не хочется утомлять вас. Я делаю всё.</h3>
-              <p class="proposal__text desc">Всё, что связано с web-технологиями, сайтами и тем, что их окружает.</p>
+                  :class="dots2 ? 'fadeInLeft animated' : ''">{{ $t('portfolio_page.prop_title') }}</h3>
+              <p class="proposal__text desc">{{ $t('portfolio_page.prop_desc') }}</p>
             </div>
           </div>
           <div class="col-12 d-flex justify-content-end">
@@ -128,9 +130,8 @@
                      once: true,
                   }"
                  :class="isVisiblePersonalBlock3 ? 'fadeInRight animated' : ''">
-              <p class="proposal__text desc">Мы можем связаться с вами прямо сейчас, чтобы услышать
-                ваши задачи и предложить свое решение</p>
-              <button class="button consult-btn glitch-btn" data-text="заказать консультацию"><span>заказать консультацию</span>
+              <p class="proposal__text desc">{{ $t('portfolio_page.prop_text') }}</p>
+              <button class="button consult-btn glitch-btn" @click="toggleModal"><span>{{ $t('portfolio_page.consult') }}</span>
               </button>
             </div>
           </div>
@@ -160,7 +161,7 @@
                      throttle: 1000,
                   }"
                  :class="isVisiblePortfolioDesc ? 'zoomIn animated' : ''"><span>WOW</span>
-              <p>Цель моего творчества – вызвать именно такие эмоции</p>
+              <p>{{ $t('portfolio_screen.goal') }}</p>
             </div>
             <h2 class="portfolio__heading section-heading"
                 v-observe-visibility="{
@@ -168,168 +169,39 @@
                      once: true,
                      throttle: 1000,
                   }"
-                :class="isVisiblePortfolioDesc ? 'fadeInRight animated' : ''">т<span
-              class="proposal__a letter-a white-a"></span>кого<br> я
+                :class="isVisiblePortfolioDesc ? 'fadeInRight animated' : ''">{{ $t('portfolio_page.t') }}<span
+              class="proposal__a letter-a white-a"></span>{{ $t('portfolio_page.uch') }}<br> я
               <span class="proposal__a letter-a white-e"></span>ще<br> н<span
                 class="proposal__a letter-a white-e"></span> видел</h2>
           </div>
-          <div class="col-lg-6 col-12 d-flex flex-wrap justify-content-between">
+          <div class="col-lg-6 col-12 d-flex flex-wrap justify-content-between" v-for="item in chunk(portfolios, 6)">
 
-
-            <a class="portfolio__item  portfolio__item_first portfolio__main
-                                            "
-               href="https://stick-design.ru/portfolio/shagova" target="_blank">
-              <div class="portfolio__preview">
-                <div class="portfolio__previewbox">
-                  <img src="/storage/portfolios/October2019/PquUGeciiv7XKUczZg0K.png" alt="shagova.photo"
-                       class="portfolio__previewimg">
-                  <div class="portfolio__overlay">
-                    <h4 class="portfolio__title"> shagova.photo</h4>
+            <template v-for="(portfolio, index) in item">
+              <nuxt-link :to="localePath({name: 'portfolio-slug', params: { slug: portfolio.slug }})"
+                          :class="`portfolio__item ${index === 0 ? 'portfolio__item_first portfolio__main' : ''}
+                          ${index%3 === 0 && index < 6 ? 'portfolio__main' : '' }
+                          ${index%2 === 2 && index >= 6 ?  'portfolio__main' : ''}`">
+                <div class="portfolio__preview">
+                  <div class="portfolio__previewbox">
+                    <img :src="imgPortfolio(portfolio.image.slug)" alt="portfolio.title"
+                         class="portfolio__previewimg">
+                    <div class="portfolio__overlay">
+                      <h4 class="portfolio__title"> {{ portfolio.title }}</h4>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="portfolio__text">
-                <div class="portfolio__name">
-                  shagova.photo
-                </div>
-                <div class="portfolio__category">
-                  portfolio
-                </div>
-              </div>
-            </a>
 
-            <a class="portfolio__item "
-               href="https://stick-design.ru/portfolio/smallhd" target="_blank">
-              <div class="portfolio__preview">
-                <div class="portfolio__previewbox">
-                  <img src="/storage/portfolios/October2019/gCufv7sBp0eoyUFX7fPH.jpg" alt="SmallHD"
-                       class="portfolio__previewimg">
-                  <div class="portfolio__overlay">
-                    <h4 class="portfolio__title"> SmallHD</h4>
+                <div class="portfolio__text">
+                  <div class="portfolio__name">
+                    {{ portfolio.title }}
+                  </div>
+                  <div class="portfolio__category">
+                    {{ portfolio.filter.name }}
                   </div>
                 </div>
-              </div>
-              <div class="portfolio__text">
-                <div class="portfolio__name">
-                  SmallHD
-                </div>
-                <div class="portfolio__category">
-                  e-commerce
-                </div>
-              </div>
-            </a>
-
-            <a class="portfolio__item "
-               href="https://stick-design.ru/portfolio/synchro" target="_blank">
-              <div class="portfolio__preview">
-                <div class="portfolio__previewbox">
-                  <img src="/storage/portfolios/October2019/xDcbZ392n9PEalrErKcC.png" alt="synchro.ru"
-                       class="portfolio__previewimg">
-                  <div class="portfolio__overlay">
-                    <h4 class="portfolio__title"> synchro.ru</h4>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio__text">
-                <div class="portfolio__name">
-                  synchro.ru
-                </div>
-                <div class="portfolio__category">
-                  e-commerce
-                </div>
-              </div>
-            </a>
-
-            <a class="portfolio__item                                                     portfolio__main
-                                            "
-               href="https://stick-design.ru/portfolio/retroclimat" target="_blank">
-              <div class="portfolio__preview">
-                <div class="portfolio__previewbox">
-                  <img src="/storage/portfolios/October2019/kxiMZvw4LE29LxR6DZHE.png" alt="retro-climat.ru"
-                       class="portfolio__previewimg">
-                  <div class="portfolio__overlay">
-                    <h4 class="portfolio__title"> retro-climat.ru</h4>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio__text">
-                <div class="portfolio__name">
-                  retro-climat.ru
-                </div>
-                <div class="portfolio__category">
-                  e-commerce
-                </div>
-              </div>
-            </a>
-
-            <a class="portfolio__item "
-               href="https://stick-design.ru/portfolio/domdecora" target="_blank">
-              <div class="portfolio__preview">
-                <div class="portfolio__previewbox">
-                  <img src="/storage/portfolios/October2019/HuJMCDg1t73zfVqyVTDn.jpg" alt="domdecora"
-                       class="portfolio__previewimg">
-                  <div class="portfolio__overlay">
-                    <h4 class="portfolio__title"> domdecora</h4>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio__text">
-                <div class="portfolio__name">
-                  domdecora
-                </div>
-                <div class="portfolio__category">
-                  e-commerce
-                </div>
-              </div>
-            </a>
-
-            <a class="portfolio__item "
-               href="https://stick-design.ru/portfolio/brothersbarber" target="_blank">
-              <div class="portfolio__preview">
-                <div class="portfolio__previewbox">
-                  <img src="/storage/portfolios/October2019/fDp3AWmvEWKgbUI0B7MT.png" alt="brothersbarber"
-                       class="portfolio__previewimg">
-                  <div class="portfolio__overlay">
-                    <h4 class="portfolio__title"> brothersbarber</h4>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio__text">
-                <div class="portfolio__name">
-                  brothersbarber
-                </div>
-                <div class="portfolio__category">
-                  landing
-                </div>
-              </div>
-            </a>
+              </nuxt-link>
+            </template>
           </div>
-
-          <div class="col-lg-6 col-12 d-flex flex-wrap justify-content-between">
-
-
-            <a class="portfolio__item "
-               href="https://stick-design.ru/portfolio/fashionbrandshop" target="_blank">
-              <div class="portfolio__preview">
-                <div class="portfolio__previewbox">
-                  <img src="/storage/portfolios/October2019/2nKObXGeVOC7ZGf4FfYu.png" alt="FashionBrandShop"
-                       class="portfolio__previewimg">
-                  <div class="portfolio__overlay">
-                    <h4 class="portfolio__title"> FashionBrandShop</h4>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio__text">
-                <div class="portfolio__name">
-                  FashionBrandShop
-                </div>
-                <div class="portfolio__category">
-                  e-commerce
-                </div>
-              </div>
-            </a>
-          </div>
-
           <button class="portfolio__button consult-btn button glitch-btn" data-text="мне нужен результат"><span>мне нужен результат</span>
           </button>
         </div>
@@ -474,7 +346,7 @@
                                 Булгаков
                             </span>
               </nuxt-link>
-              <div class="copyright">2018 Все права защищены</div>
+              <div class="copyright">2021 Все права защищены</div>
               <div @click="scrollTo" class="goup d-flex">
                 <p class="goup_text">
                   Наверх
@@ -509,7 +381,7 @@
 <script>
 import HeaderSection from "@/components/portfolio/HeaderSection";
 import ModalWork from "@/components/ModalWork";
-import {mapMutations} from "vuex";
+import {mapActions, mapGetters, mapMutations} from "vuex";
 export default {
   name: "portfolio",
   transition: 'intro',
@@ -532,7 +404,15 @@ export default {
       isVisibleContacts: false,
     }
   },
+  computed: {
+    ...mapGetters({
+      portfolios: 'portfolio/getPortfolios'
+    }),
+  },
   methods: {
+    ...mapActions({
+      loadPortfolios: 'portfolio/loadPortfolios'
+    }),
     visibilityChanged(isVisible) {
       this.isVisible = isVisible
     },
@@ -566,10 +446,29 @@ export default {
     scrollTo() {
       this.$refs.header.scrollIntoView({ behavior: 'smooth' })
     },
+    chunk(array, size) {
+      const chunked_arr = [];
+      let index = 0;
+      while (index < array.length) {
+        chunked_arr.push(array.slice(index, size + index));
+        index += size;
+      }
+      return chunked_arr;
+    },
+
+    imgPortfolio(src) {
+      return this.$cloudinary.image.url(src, {
+        fetchFormat: 'auto',
+        quality: '100',
+      })
+    },
     ...mapMutations({
       toggleModal: 'app/toggleModal'
     })
-  }
+  },
+  created() {
+    this.loadPortfolios()
+  },
 }
 </script>
 

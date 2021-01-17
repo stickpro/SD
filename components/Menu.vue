@@ -53,11 +53,11 @@ export default {
   data() {
     return {
       menuList: [
-        {index: 0, number: 1, name: 'Главная' },
-        {index: 1, number: 2, name: 'Основные принципы'},
-        {index: 2, number: 3, name: 'Портфолио'},
-        {index: 3, number: 4, name: 'Направления деятельности'},
-        {index: 4, number: 5, name: 'Контакты'},
+        {index: 0, number: 1, name: this.$t('menu.home') },
+        {index: 1, number: 2, name: this.$t('menu.basic') },
+        {index: 2, number: 3, name: this.$t('menu.portfolio') },
+        {index: 3, number: 4, name: this.$t('menu.activities') },
+        {index: 4, number: 5, name: this.$t('menu.contacts') },
       ]
     }
   },

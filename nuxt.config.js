@@ -1,4 +1,5 @@
 require('dotenv').config()
+const axios = require('axios')
 
 export default {
   /*
@@ -48,6 +49,7 @@ export default {
   plugins: [
     '@/plugins/anime.js',
     '@/plugins/VueObserver.js',
+    {src: '~/plugins/splide.client.js', ssr:false}
   ],
   /*
   ** Auto import components
@@ -74,6 +76,9 @@ export default {
     '@nuxtjs/cloudinary',
     '@nuxtjs/dotenv',
     'nuxt-i18n',
+
+    //all time in end
+    '@nuxtjs/sitemap',
   ],
   /*
   ** Axios module configuration
@@ -112,6 +117,17 @@ export default {
     lazy: true,
     langDir: 'lang/',
     defaultLocale: 'ru',
+  },
+  /*
+  ** nuxt sitemap
+  **
+  */
+  sitemap: {
+    hostname: process.env.BASE_URL,
+    gzip: true,
+    exclude: [
+      '/_icons',
+    ],
   },
 
   /*

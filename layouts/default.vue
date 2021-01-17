@@ -22,6 +22,15 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
 }
+body {
+  min-width: 320px;
+  margin: 0;
+  padding: 0;
+  color: #2d2d2d;
+  overflow-x: hidden;
+  border: 0;
+  vertical-align: baseline;
+}
 
 *,
 *::before,

@@ -30,19 +30,35 @@ export default {
     FooterScreen,
     ModalWork
   },
+  head() {
+    return {
+      title: this.$t('home.meta.title'),
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('home.meta.description')
+        },
+
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.$t('home.meta.title')
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.$t('home.meta.description')
+        },
+      ]
+    }
+  },
   data() {
     return {
       options: {
         menu: "#menuright",
         css3: false,
         scrollingSpeed: 1200,
-        // anchors: [
-        //   "firstSection",
-        //   "secondSection",
-        //   "thirdPage",
-        //   "fourthPage",
-        //   "fifthPage"
-        // ],
         responsiveWidth: 768,
         responsiveHeight: 480,
         afterLoad: this.afterLoad,

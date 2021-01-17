@@ -178,7 +178,7 @@
 
                 <g clip-path="url(#servicesHeadlinePath1)">
                   <foreignObject class="text-stroke" x="0" y="-1" width="158" height="94">
-                    <text text-anchor="start" textLength="145" lengthAdjust="spacing">мы</text>
+                    <text text-anchor="start" textLength="145" lengthAdjust="spacing">{{ $t('service_screen.me') }}</text>
                   </foreignObject>
                 </g>
                 <g clip-path="url(#servicesHeadlinePath2)" id="servicesHeadlineText2">
@@ -189,7 +189,7 @@
                     width="688"
                     height="94"
                   >
-                    <text text-anchor="start" textLength="688" lengthAdjust="spacing">позаботимся</text>
+                    <text text-anchor="start" textLength="688" lengthAdjust="spacing">{{ $t('service_screen.take_care') }}</text>
                   </foreignObject>
                 </g>
 
@@ -204,7 +204,7 @@
                     width="688"
                     height="94"
                   >
-                    <text text-anchor="start" textLength="688" lengthAdjust="spacing">позабо-</text>
+                    <text text-anchor="start" textLength="688" lengthAdjust="spacing">{{ $t('service_screen.take_split1') }}</text>
                   </foreignObject>
                 </g>
                 <g
@@ -218,7 +218,7 @@
                     width="688"
                     height="94"
                   >
-                    <text text-anchor="start" textLength="688" lengthAdjust="spacing">тимся</text>
+                    <text text-anchor="start" textLength="688" lengthAdjust="spacing">{{ $t('service_screen.take_split2') }}</text>
                   </foreignObject>
                 </g>
 
@@ -230,7 +230,7 @@
                     width="467"
                     height="94"
                   >
-                    <text text-anchor="start" textLength="465" lengthAdjust="spacing">обо&nbsp;всем</text>
+                    <text text-anchor="start" textLength="465" lengthAdjust="spacing">{{ $t('service_screen.about')}}</text>
                   </foreignObject>
                 </g>
 
@@ -243,7 +243,7 @@
                       y="74"
                       textLength="145"
                       lengthAdjust="spacing"
-                    >мы</text>
+                    >{{ $t('service_screen.me') }}</text>
                   </clipPath>
                   <clipPath id="servicesHeadlinePath2">
                     <text
@@ -253,7 +253,7 @@
                       y="168"
                       textLength="678"
                       lengthAdjust="spacing"
-                    >позаботимся</text>
+                    >{{ $t('service_screen.take_care') }}</text>
                   </clipPath>
 
                   <clipPath id="servicesHeadlinePath2-mobile">
@@ -264,7 +264,7 @@
                       y="130"
                       textLength="275"
                       lengthAdjust="spacing"
-                    >позабо-</text>
+                    >{{ $t('service_screen.take_split1') }}</text>
                   </clipPath>
                   <clipPath id="servicesHeadlinePath2-mobile2">
                     <text
@@ -274,7 +274,7 @@
                       y="205"
                       textLength="211"
                       lengthAdjust="spacing"
-                    >тимся</text>
+                    >{{ $t('service_screen.take_split2') }}</text>
                   </clipPath>
 
                   <clipPath id="servicesHeadlinePath3">
@@ -285,7 +285,7 @@
                       y="265"
                       textLength="459"
                       lengthAdjust="spacing"
-                    >обо всем</text>
+                    >{{ $t('service_screen.about')}}</text>
                   </clipPath>
                 </defs>
               </svg>
@@ -306,7 +306,7 @@
                     <p
                       class="services-item_name-text services-item_name-text1"
                       :class="{ servicesItemNameTextMove: config.timeOutAnim1 }"
-                      v-html="spanText('Создание Landing Page')"
+                      v-html="spanText($t('service_screen.title1'))"
                     ></p>
                   </div>
                   <div
@@ -321,8 +321,7 @@
                     :class="{ servicesItemDescriptionLineAdd: config.timeOutAnim6, servicesItemDescriptionActive: text1 }"
                     v-show="config.timeOutAnim2"
                   >
-                    Вы хотите получить результат от вложенных инвестиций как можно скорее? Тогда одностраничный сайт от нашей команды идеально вам подходит.
-                    Создание продающей страницы ведется индивидуально для каждого заказчика, с учетом личных предпочтений.
+                    {{ $t('service_screen.description1') }}
                   </div>
                   </transition>
                   <transition name="slide-fade"  mode="out-in">
@@ -331,8 +330,7 @@
                     :class="{ servicesItemDescriptionLineAdd: config.timeOutAnim6, servicesItemDescriptionActive: text2 }"
                     v-show="text2"
                   >
-                    Создание корпоративного сайта, это имиджевое представительство вашей компании в онлайн пространстве.
-                    Раз уж вы зашли к нам, то наверняка задумались над тем, чтобы расширить свой бизнес за пределами офлайна. И это правильное решение!
+                    {{ $t('service_screen.description2') }}
                   </div>
                   </transition>
                   <transition name="slide-fade"  mode="out-in">
@@ -341,8 +339,7 @@
                     :class="{ servicesItemDescriptionLineAdd: config.timeOutAnim6, servicesItemDescriptionActive: text3 }"
                     v-show="text3"
                   >
-                    Покупки в интернете уже давно стали нормой повседневной жизни. Мировой рынок интернет-торговли за последний год вырос на 23%, а в странах СНГ более чем на 50%, что свидетельствует о перспективности этого направления бизнеса.
-                    Если вы хотите заняться электронной коммерцией, мы поможем вам с самого старта сделать все правильно.
+                    {{ $t('service_screen.description3') }}
                   </div>
                   </transition>
                   <transition name="slide-fade"  mode="out-in">
@@ -351,8 +348,7 @@
                     :class="{ servicesItemDescriptionLineAdd: config.timeOutAnim6, servicesItemDescriptionActive: text4 }"
                     v-show="text4"
                   >
-                    Сегодня все чаще люди заходят в интернет с мобильных гаджетов. Мы делаем адаптивные сайты для того, чтобы обеспечить вашему веб-проекту качественную коммуникацию и конвертировать обладателей современных гаджетов в реальных клиентов.
-                    Адаптивный веб-дизайн — технология, применяемая в разработке сайтов для их адекватного отображения на любом экране: от десктопа до смартфона.
+                    {{ $t('service_screen.description4') }}
                   </div>
                   </transition>
                 </div>
@@ -368,7 +364,7 @@
                     <p
                       class="services-item_name-text services-item_name-text2"
                       :class="{ servicesItemNameTextMove: config.timeOutAnim2 }"
-                      v-html="spanText('Создание сайта для компании')"
+                      v-html="spanText($t('service_screen.title2'))"
                     ></p>
                   </div>
                   <div class="services-item_name-line services-item_name-line2 short-line"></div>
@@ -403,7 +399,7 @@
                     <p
                       class="services-item_name-text services-item_name-text3"
                       :class="{ servicesItemNameTextMove: config.timeOutAnim3 }"
-                      v-html="spanText('Создание интернет-магазина')"
+                      v-html="spanText($t('service_screen.title3'))"
                     ></p>
                   </div>
                   <div class="services-item_name-line services-item_name-line3 short-line"></div>
@@ -439,7 +435,7 @@
                     <p
                       class="services-item_name-text services-item_name-text4"
                       :class="{ servicesItemNameTextMove: config.timeOutAnim4 }"
-                      v-html="spanText('Создание адаптивных сайтов')"
+                      v-html="spanText($t('service_screen.title4'))"
                     ></p>
                   </div>
                   <div class="services-item_name-line services-item_name-line4 long-line"></div>
@@ -555,7 +551,7 @@
     </div>
     <div class="container">
       <div class="services-frame-top">
-        <a class="services-portfolio-word"  @click="config.fullpageApi.moveSectionUp()">Портфолио</a>
+        <div class="services-portfolio-word"  @click="config.fullpageApi.moveSectionUp()">{{ $t('home.cases') }}</div>
         <div class="hamburger hamburger-services js-MenuItem" @click="toggleMenu">
           <span class="hamburger_line hamburger_line__up"></span>
           <span class="hamburger_line hamburger_line__middleUp"></span>
@@ -572,10 +568,17 @@
             <span class="logo_dash"></span>
             <span class="logo_dash"></span>
           </div>
-          <span class="logo_name">Владислав</span>
-          <span class="logo_surname">Булгаков</span>
+          <span class="logo_name">{{ $t('me.name') }}</span>
+          <span class="logo_surname">{{ $t('me.lastname') }}</span>
         </div>
-        <div class="lang">ru</div>
+        <div class="lang">
+          <nuxt-link class="lang__name"
+                     :class="$i18n.locale === 'ru' ? 'lang--active' : ''"
+                     :to="switchLocalePath('ru')"><span></span>ru</nuxt-link>
+          <nuxt-link class="lang__name"
+                     :class="$i18n.locale === 'en' ? 'lang--active' : ''"
+                     :to="switchLocalePath('en')">en</nuxt-link>
+        </div>
       </div>
     </div>
   </section>

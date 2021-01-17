@@ -18,7 +18,7 @@
       <div class="offer_row offer_row__middletop">
         <div class="offer_box">
           <div class="headline">
-            <svg width="480.55" height="275.5">
+            <svg width="480.55" height="275.5" v-show="show">
               <g clip-path="url(#offerHeadlinePath1)">
                 <foreignObject
                   class="offer-headline offer-headline1"
@@ -27,7 +27,7 @@
                   width="190"
                   height="94"
                 >
-                  <text text-anchor="start" textLength="145" lengthAdjust="spacing">Вам</text>
+                  <text text-anchor="start" textLength="145" lengthAdjust="spacing">{{ $t('second.you') }}</text>
                 </foreignObject>
               </g>
               <g clip-path="url(#offerHeadlinePath2)">
@@ -38,7 +38,7 @@
                   width="480"
                   height="94"
                 >
-                  <text text-anchor="start" textLength="480" lengthAdjust="spacing">не&nbsp;нужен</text>
+                  <text text-anchor="start" textLength="480" lengthAdjust="spacing">{{ $t('second.no_need') }}</text>
                 </foreignObject>
               </g>
               <g clip-path="url(#offerHeadlinePath3)">
@@ -49,7 +49,7 @@
                   width="467"
                   height="94"
                 >
-                  <text text-anchor="start" textLength="247" lengthAdjust="spacing">сайт</text>
+                  <text text-anchor="start" textLength="247" lengthAdjust="spacing">{{ $t('second.site') }}</text>
                 </foreignObject>
               </g>
 
@@ -61,7 +61,7 @@
                   width="190"
                   height="94"
                 >
-                  <text text-anchor="start" textLength="145" lengthAdjust="spacing">Вам</text>
+                  <text text-anchor="start" textLength="145" lengthAdjust="spacing">{{ $t('second.you') }}</text>
                 </foreignObject>
               </g>
               <g clip-path="url(#offerHeadlinePath2)">
@@ -72,7 +72,7 @@
                   width="480"
                   height="94"
                 >
-                  <text text-anchor="start" textLength="480" lengthAdjust="spacing">не&nbsp;нужен</text>
+                  <text text-anchor="start" textLength="480" lengthAdjust="spacing">{{ $t('second.no_need') }}</text>
                 </foreignObject>
               </g>
               <g clip-path="url(#offerHeadlinePath3)">
@@ -83,7 +83,7 @@
                   width="467"
                   height="94"
                 >
-                  <text text-anchor="start" textLength="247" lengthAdjust="spacing">сайт</text>
+                  <text text-anchor="start" textLength="247" lengthAdjust="spacing">{{ $t('second.site') }}</text>
                 </foreignObject>
               </g>
 
@@ -97,7 +97,7 @@
                     class
                     textLength="189"
                     lengthAdjust="spacing"
-                  >Вам</text>
+                  >{{ $t('second.you') }}</text>
                 </clipPath>
                 <clipPath id="offerHeadlinePath2">
                   <text
@@ -108,7 +108,7 @@
                     class
                     textLength="470"
                     lengthAdjust="spacing"
-                  >не нужен</text>
+                  >{{ $t('second.no_need') }}</text>
                 </clipPath>
                 <clipPath id="offerHeadlinePath3">
                   <text
@@ -119,7 +119,7 @@
                     class
                     textLength="236"
                     lengthAdjust="spacing"
-                  >сайт</text>
+                  >{{ $t('second.site') }}</text>
                 </clipPath>
               </defs>
             </svg>
@@ -133,7 +133,7 @@
             <div
               class="offer_text"
               :class="{offerTextMove: config.animation}"
-            >Сайт - это просто веб-страница, а вам нужен инструмент для привлечение клиентов и увелечения продаж</div>
+            >{{ $t('second.offer_text') }}</div>
           </div>
         </div>
       </div>
@@ -145,21 +145,21 @@
               <svg class="advantages_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <polygon points="0,0 15,0 7.5,13" />
               </svg>
-              <div class="advantages_text">Исследование ниши и целевой аудитории</div>
+              <div class="advantages_text">{{ $t('second.advantages1') }}</div>
             </li>
             <li class="advantages_item">
               <span class="advantages_number">2</span>
               <svg class="advantages_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <polygon points="0,0 15,0 7.5,13" />
               </svg>
-              <div class="advantages_text">Поиск компромисных дизайн-решений</div>
+              <div class="advantages_text">{{ $t('second.advantages2') }}</div>
             </li>
             <li class="advantages_item">
               <span class="advantages_number">3</span>
               <svg class="advantages_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <polygon points="0,0 15,0 7.5,13" />
               </svg>
-              <div class="advantages_text">Современные стандарты разработки</div>
+              <div class="advantages_text">{{ $t('second.advantages3') }}</div>
             </li>
           </ul>
           <div class="container">
@@ -193,7 +193,7 @@
                 <div
                   class="advantages_text advantages_text__one"
                   :class="{advantagesTextMove1: config.animation }"
-                >Исследование ниши и целевой аудитории</div>
+                >{{ $t('second.advantages1') }}</div>
               </div>
             </li>
             <li class="advantages_item">
@@ -212,7 +212,7 @@
                 <div
                   class="advantages_text advantages_text__two"
                   :class="{advantagesTextMove2: config.animation }"
-                >Поиск компромисных дизайн-решений</div>
+                >{{ $t('second.advantages2') }}</div>
               </div>
             </li>
             <li class="advantages_item">
@@ -231,7 +231,7 @@
                 <div
                   class="advantages_text advantages_text__three"
                   :class="{advantagesTextMove3: config.animation }"
-                >Современные стандарты разработки</div>
+                >{{ $t('second.advantages3') }}</div>
               </div>
             </li>
           </ul>
@@ -247,7 +247,7 @@
     </div>
     <div class="container">
       <div class="offer-frame-top">
-        <div class="offer-portfolio-word" @click="config.fullpageApi.moveSectionDown()">Портфолио</div>
+        <div class="offer-portfolio-word" @click="config.fullpageApi.moveSectionDown()">{{ $t('home.cases') }}</div>
         <div class="hamburger hamburger-offer js-MenuItem" @click="toggleMenu">
           <span class="hamburger_line hamburger_line__up"></span>
           <span class="hamburger_line hamburger_line__middleUp"></span>
@@ -264,10 +264,17 @@
             <span class="logo_dash"></span>
             <span class="logo_dash"></span>
           </div>
-          <span class="logo_name">Владислав</span>
-          <span class="logo_surname">Булгаков</span>
+          <span class="logo_name">{{ $t('me.name') }}</span>
+          <span class="logo_surname">{{ $t('me.lastname') }}</span>
         </div>
-        <div class="lang">ru</div>
+        <div class="lang">
+          <nuxt-link class="lang__name"
+                     :class="$i18n.locale === 'ru' ? 'lang--active' : ''"
+                     :to="switchLocalePath('ru')"><span></span>ru</nuxt-link>
+          <nuxt-link class="lang__name"
+                     :class="$i18n.locale === 'en' ? 'lang--active' : ''"
+                     :to="switchLocalePath('en')">en</nuxt-link>
+        </div>
       </div>
     </div>
   </section>
@@ -282,6 +289,12 @@ export default {
   ...mapMutations({
       toggleMenu: 'app/toggleMenu'
     })
+  },
+  data: () => ({
+    show: true,
+  }),
+  created() {
+    setTimeout(() => (this.show = true), 1000)
   }
 };
 </script>

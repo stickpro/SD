@@ -38,7 +38,7 @@
               <svg-icon name="skype" height="14px" width="14px"/>
             </a>
           </div>
-          <div class="socials_text">Давайте знакомиться</div>
+          <div class="socials_text">{{ $t('home.acquainted') }}</div>
         </div>
         <div class="hamburger hamburger-portfolio js-MenuItem" @click="toggleMenu">
           <span class="hamburger_line hamburger_line__up"></span>
@@ -51,23 +51,23 @@
       <div class="portfolio-body">
         <div class="portfolio-line"></div>
         <div class="portfolio-content">
-          <div class="portfolio-content_goal">Цель моего творчества – вызвать именно такие эмоции</div>
+          <div class="portfolio-content_goal">{{ $t('portfolio_screen.goal') }}</div>
           <div class="portfolio-content_wrap">
             <div class="portfolio-content_title">
               <div
                 class="headline portfolioTitle1"
                 :class="{portfolioHeadlineAnime1:config.animation }"
-              >такого
+              >{{ $t('portfolio_screen.headline1') }}
               </div>
               <div
                 class="headline portfolioTitle2"
                 :class="{portfolioHeadlineAnime2:config.animation }"
-              >я еще
+              >{{ $t('portfolio_screen.headline2') }}
               </div>
               <div
                 class="headline portfolioTitle3"
                 :class="{portfolioHeadlineAnime3:config.animation }"
-              >не видел
+              >{{ $t('portfolio_screen.headline3') }}
               </div>
             </div>
             <div class="portfolio-content_list">
@@ -88,72 +88,6 @@
                     <div class="portfolio-item_category">{{ portfolio.filter.name }}</div>
                   </div>
                 </nuxt-link>
-                <a
-                  target="_blank"
-                  class="portfolio-item"
-                  href="https://stick-design.ru/portfolio/synchro"
-                >
-                  <div class="portfolio-item_preview">
-                    <img
-                      src="https://stick-design.ru/storage/portfolios/October2019/xDcbZ392n9PEalrErKcC.png"
-                      alt
-                    />
-                  </div>
-                  <div class="portfolio-item_text">
-                    <div class="portfolio-item_name">synchro.ru</div>
-                    <div class="portfolio-item_category">e-commerce</div>
-                  </div>
-                </a>
-              </div>
-              <div class="portfolio-content_items clearfix">
-                <a
-                  target="_blank"
-                  class="portfolio-item"
-                  href="https://stick-design.ru/portfolio/retroclimat"
-                >
-                  <div class="portfolio-item_preview">
-                    <img
-                      src="https://stick-design.ru/storage/portfolios/October2019/kxiMZvw4LE29LxR6DZHE.png"
-                      alt
-                    />
-                  </div>
-                  <div class="portfolio-item_text">
-                    <div class="portfolio-item_name">retro-climat.ru</div>
-                    <div class="portfolio-item_category">e-commerce</div>
-                  </div>
-                </a>
-                <a
-                  target="_blank"
-                  class="portfolio-item"
-                  href="https://stick-design.ru/portfolio/domdecora"
-                >
-                  <div class="portfolio-item_preview">
-                    <img
-                      src="https://stick-design.ru/storage/portfolios/October2019/HuJMCDg1t73zfVqyVTDn.jpg"
-                      alt
-                    />
-                  </div>
-                  <div class="portfolio-item_text">
-                    <div class="portfolio-item_name">domdecora</div>
-                    <div class="portfolio-item_category">e-commerce</div>
-                  </div>
-                </a>
-                <a
-                  target="_blank"
-                  class="portfolio-item"
-                  href="https://stick-design.ru/portfolio/brothersbarber"
-                >
-                  <div class="portfolio-item_preview">
-                    <img
-                      src="https://stick-design.ru/storage/portfolios/October2019/fDp3AWmvEWKgbUI0B7MT.png"
-                      alt
-                    />
-                  </div>
-                  <div class="portfolio-item_text">
-                    <div class="portfolio-item_name">brothersbarber</div>
-                    <div class="portfolio-item_category">landing</div>
-                  </div>
-                </a>
               </div>
             </div>
           </div>
@@ -169,11 +103,11 @@
               <span class="logo_dash"></span>
               <span class="logo_dash"></span>
             </div>
-            <span class="logo_name">Владислав</span>
-            <span class="logo_surname">Булгаков</span>
+            <span class="logo_name">{{ $t('me.name') }}</span>
+            <span class="logo_surname">{{ $t('me.lastname') }}</span>
           </div>
-          <a class="portfolio-watch">
-            <nuxt-link to="/portfolio" class="portfolio-watch_text">Смотреть все</nuxt-link>
+          <nuxt-link :to="localePath('portfolio')" class="portfolio-watch">
+            <div  class="portfolio-watch_text">{{ $t('portfolio_screen.watch') }} </div>
             <div class="portfolio-watch_triangles">
               <svg class="portfolio_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <polygon points="0,0 13,7.5 0,15"/>
@@ -185,9 +119,16 @@
                 <polygon points="0,0 10,5.5 0,11"/>
               </svg>
             </div>
-          </a>
+          </nuxt-link>
         </div>
-        <div class="lang">ru</div>
+        <div class="lang">
+          <nuxt-link class="lang__name"
+                     :class="$i18n.locale === 'ru' ? 'lang--active' : ''"
+                     :to="switchLocalePath('ru')"><span></span>ru</nuxt-link>
+          <nuxt-link class="lang__name"
+                     :class="$i18n.locale === 'en' ? 'lang--active' : ''"
+                     :to="switchLocalePath('en')">en</nuxt-link>
+        </div>
       </div>
     </div>
     <div class="wow_bg" :class="{wowMove: config.animation}">

@@ -20,7 +20,7 @@
               </a>
             </div>
 
-            <div class="socials_text">Давайте знакомиться</div>
+            <div class="socials_text">{{ $t('footer.lets') }} {{ $t('footer.meet') }}</div>
           </div>
           <div class="hamburger hamburger-start" :class="{ startHamburgerDown: config.animation }" @click="toggleMenu">
             <span class="hamburger_line hamburger_line__up"></span>
@@ -41,7 +41,7 @@
                 lengthAdjust="spacing"
                 class="text text-stroke"
                 clip-path="url(#text1)"
-              >Давайте</text>
+              >{{ $t('footer.lets') }}</text>
               <text
                 id="textStrokeBottom"
                 text-anchor="start"
@@ -51,7 +51,7 @@
                 lengthAdjust="spacing"
                 class="text text-stroke"
                 clip-path="url(#text2)"
-              >начнем</text>
+              >{{ $t('footer.start') }}</text>
 
               <text
                 id="textStrokeTop2"
@@ -62,7 +62,7 @@
                 lengthAdjust="spacing"
                 class="text text-stroke text-stroke-2"
                 clip-path="url(#text1)"
-              >Давайте</text>
+              >{{ $t('footer.lets') }}</text>
               <text
                 id="textStrokeBottom2"
                 text-anchor="start"
@@ -72,7 +72,7 @@
                 lengthAdjust="spacing"
                 class="text text-stroke text-stroke-2"
                 clip-path="url(#text2)"
-              >начнем</text>
+              >{{ $t('footer.start') }}</text>
 
               <defs>
                 <clipPath id="text1">
@@ -83,7 +83,7 @@
                     class="text"
                     textLength="417"
                     lengthAdjust="spacing"
-                  >Давайте</text>
+                  >{{ $t('footer.lets') }}</text>
                 </clipPath>
                 <clipPath id="text2">
                   <text
@@ -93,7 +93,7 @@
                     class="text"
                     textLength="368"
                     lengthAdjust="spacing"
-                  >начнем</text>
+                  >{{ $t('footer.start') }}</text>
                 </clipPath>
               </defs>
             </svg>
@@ -153,7 +153,7 @@
         <div class="start-line" :class="{ startSocialsUp: config.animation }"></div>
         <div class="start_wrap-bottom">
           <div class="start_buttons">
-            <div class="start_order" @click="toggleModal">Оставить заявку</div>
+            <div class="start_order" @click="toggleModal">{{ $t('app.submit') }}</div>
           </div>
           <div class="start_contacts">
             <a href="tel:+79187509500" class="tel">+7 (918) 750-95-00</a>
@@ -168,21 +168,28 @@
               <span class="logo_dash"></span>
               <span class="logo_dash"></span>
             </div>
-            <span class="logo_name">Владислава</span>
-            <span class="logo_surname">Булгакова</span>
+            <span class="logo_name">{{ $t('me.name') }}</span>
+            <span class="logo_surname">{{ $t('me.lastname') }}</span>
           </div>
-          <a to="/portfolio" class="portfolio-word" :class="{ startPortfolioRight: config.animation }">Портфолио</a>
+          <nuxt-link :to="localePath('portfolio')" class="portfolio-word" :class="{ startPortfolioRight: config.animation }">{{ $t('home.cases') }}</nuxt-link>
           <div class="copyright clearfix">
             <p :class="{ startCopyRight: config.animation }">Copyright {{  (new Date()).getFullYear() }}</p>
-            <p>Stick-design Владислав Булгаков</p>
+            <p>Stick-design {{ $t('me.name')}} {{ $t('me.lastname') }}</p>
           </div>
           <a class="goup" :class="{ startGoupLeft: config.animation }" @click="config.fullpageApi.moveTo(1)">
-            <p class="goup_text">Наверх</p>
+            <p class="goup_text">{{ $t('app.up') }}</p>
             <svg class="goup_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
               <polygon points="7.5,0 15,15 0,15" />
             </svg>
           </a>
-          <div class="lang">ru</div>
+          <div class="lang">
+            <nuxt-link class="lang__name"
+                       :class="$i18n.locale === 'ru' ? 'lang--active' : ''"
+                       :to="switchLocalePath('ru')"><span></span>ru</nuxt-link>
+            <nuxt-link class="lang__name"
+                       :class="$i18n.locale === 'en' ? 'lang--active' : ''"
+                       :to="switchLocalePath('en')">en</nuxt-link>
+          </div>
         </div>
       </div>
     </div>

@@ -87,24 +87,7 @@
     <footer class="footer-case">
       <div class="container">
         <div class="row">
-          <div class="col-12">
-            <div class="navigation">
-
-              <div class="navigation__item">
-                <a href="" class="navigation__link">
-                  <h3 class="navigation__heading"> title </h3>
-                  <div class="navigation__desc">desc</div>
-                </a>
-              </div>
-            </div>
-
-            <div class="navigation__arrows">
-              <div class="navigation__arrows">
-                <div class="navigation__arrow navigation__arrow_prev slick-arrow" style=""></div>
-                <div class="navigation__arrow navigation__arrow_next slick-arrow" style=""></div>
-              </div>
-            </div>
-          </div>
+          <FooterNavigation />
         </div>
       </div>
     </footer>
@@ -113,19 +96,17 @@
 
 <script>
 import {mapGetters, mapMutations} from "vuex";
-
+import FooterNavigation from "@/components/portfolio/FooterNavigation";
 export default {
   name: "slug",
   transition: 'intro',
+  components:  {
+    FooterNavigation,
+  },
   computed: {
     ...mapGetters({
       portfolio: 'portfolio/getPortfolio'
     })
-  },
-  data() {
-    return {
-      isVisibleImage: [false, false, false]
-    }
   },
   async asyncData({store, params, error}) {
     try {
@@ -144,17 +125,15 @@ export default {
     },
     visibilityChanged(isVisible, entry, index) {
       this.SET_IMAGE_VISIBLE({ index, isVisible })
-      console.log(isVisible, index, this.portfolio.images)
     }
   },
-  mounted() {
-    //this.isVisibleImage = Array.apply(null, Array(30)).map(Number.prototype.valueOf,0).fill(false)
-  }
 }
 </script>
 
 <style lang="scss" scoped>
+
 @import "~assets/scss/grid.scss";
 
 @import "~assets/scss/main_portfolio.css";
+
 </style>

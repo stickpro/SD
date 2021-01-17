@@ -1,5 +1,5 @@
 <template>
-  <header class="section">
+  <header class="section homeHeader">
     <div class="container">
       <div class="header_textline header_textline__up">[etdsqlbpfqyt</div>
       <div class="header_textline header_textline__up2">[etdsqlbpfqyt</div>
@@ -21,14 +21,15 @@
             <span class="logo_dash"></span>
             <span class="logo_dash"></span>
           </div>
-          <span class="logo_name">Владислав</span>
-          <span class="logo_surname">Булгаков</span>
+          <span class="logo_name">{{ $t('me.name') }}</span>
+          <span class="logo_surname">{{ $t('me.lastname') }}</span>
         </div>
         <nuxt-link
           class="portfolio-word"
           :class="{ slideInLeftPL: config.animation }"
-          to="/portfolio"
-        >Портфолио</nuxt-link>
+          :to="localePath('portfolio')"
+        >{{ $t('home.cases') }}
+        </nuxt-link>
         <a
           class="email"
           :class="{ slideInLeftEL: config.animation }"
@@ -41,7 +42,7 @@
           class="tel"
         >+7 (918) 750-95-00</a>
         <div class="starter" :class="{ slideInRightS: config.animation }" @click="toggleModal">
-          Начать работу
+          {{ $t('home.contacts') }}
           <span class="line-1"></span>
           <span class="line-2"></span>
           <span class="line-3"></span>
@@ -55,11 +56,11 @@
         </div>
       </div>
       <div class="intro-portfolio-word-wrap">
-        <nuxt-link to="/portfolio" class="intro-portfolio-word">Портфолио</nuxt-link>
+        <nuxt-link :to="localePath('portfolio')" class="intro-portfolio-word">{{ $t('home.cases') }}</nuxt-link>
       </div>
       <div class="starter-mobile-wrap">
         <div class="starter starter-mobile" @click="toggleModal">
-          Начать работу
+          {{ $t('home.contacts') }}
           <span class="line-1"></span>
           <span class="line-2"></span>
           <span class="line-3"></span>
@@ -69,32 +70,33 @@
       <div class="socials" :class="{ slideInUpS: config.animation }">
         <div class="socials_icons">
           <a href="https://t.me/stick_qwe">
-            <svg-icon name="telegram" height="14px" width="14px" />
+            <svg-icon name="telegram" height="14px" width="14px"/>
           </a>
           <a href="https://api.whatsapp.com/send?phone=79187509500">
-            <svg-icon name="whatsapp" height="14px" width="14px" />
+            <svg-icon name="whatsapp" height="14px" width="14px"/>
           </a>
           <a href="https://vk.com/id383968">
-            <svg-icon name="vk" height="14px" width="14px" />
+            <svg-icon name="vk" height="14px" width="14px"/>
           </a>
           <a href="skype:stick_25?chat">
-            <svg-icon name="skype" height="14px" width="14px" />
+            <svg-icon name="skype" height="14px" width="14px"/>
           </a>
         </div>
-        <div class="socials_text">Давайте знакомиться</div>
+        <div class="socials_text">{{ $t('home.acquainted') }}</div>
       </div>
       <div class="intro">
         <h1>
           <span class="design">Stick</span>
           <span class="bureau">Design</span>
-          <div class="intro_text">Владислав&nbsp;Булгаков</div>
+          <div class="intro_text">Vladislav Bulgakov</div>
         </h1>
       </div>
       <div class="menuright-wrap">
         <div class="menuright-wrap2">
           <div class="menuright" :class="{ slideInDownM: config.animation, bw: config.menuBlack }">
-            <div  v-for="menu in menuFullpage" :key="menu.index"  class="menuright_item" @click="config.fullpageApi.moveTo(menu.number)" :class="{ active: config.menuIndex == menu.index }" >
-              <span class="menuright_number" >
+            <div v-for="menu in menuFullpage" :key="menu.index" class="menuright_item"
+                 @click="config.fullpageApi.moveTo(menu.number)" :class="{ active: config.menuIndex == menu.index }">
+              <span class="menuright_number">
                 <span class="zero">0</span>
                 <span class="digit">
                   <div class="digit_square"></div>
@@ -112,8 +114,18 @@
       <div class="section-footer">
         <div class="sloganwrap">
           <div class="slogan" :class="{ slideInLeft: config.animation }">
-            <div class="slogan_title">Воплотим с нуля</div>
-            <div class="slogan_text">Ваши идеи + мои решения = готовый продукт</div>
+            <div class="slogan_title">{{ $t('home.slogan.title') }}</div>
+            <div class="slogan_text">{{ $t('home.slogan.text') }}</div>
+          </div>
+          <div class="lang" :class="{ slideInRightH: config.animation }">
+            <nuxt-link class="lang__name"
+                       :class="$i18n.locale === 'ru' ? 'lang--active' : ''"
+                       :to="switchLocalePath('ru')"><span></span>ru
+            </nuxt-link>
+            <nuxt-link class="lang__name"
+                       :class="$i18n.locale === 'en' ? 'lang--active' : ''"
+                       :to="switchLocalePath('en')">en
+            </nuxt-link>
           </div>
         </div>
         <div class="triangle-coral" @click="config.fullpageApi.moveSectionDown()">
@@ -142,9 +154,10 @@
   </header>
 </template>
 <script>
-import { mapMutations } from 'vuex'
+import {mapMutations} from 'vuex'
 
 import Menu from "~/components/Menu";
+
 export default {
   name: "FirstScreen",
   props: ["config"],
@@ -157,11 +170,11 @@ export default {
       split: null,
       open: false,
       menuFullpage: [
-        {index: 0, number: 1 },
-        {index: 1, number: 2 },
-        {index: 2, number: 3 },
-        {index: 3, number: 4 },
-        {index: 4, number: 5 },
+        {index: 0, number: 1},
+        {index: 1, number: 2},
+        {index: 2, number: 3},
+        {index: 3, number: 4},
+        {index: 4, number: 5},
       ]
     };
   },
@@ -171,7 +184,7 @@ export default {
     },
     splitAnm() {
       const split = new SplitText('stick')
-      split.chars.each(function(){
+      split.chars.each(function () {
         TweenMax.from((this), 2.5, {
           opacity: 0,
           x: this.random(-500, 500),
