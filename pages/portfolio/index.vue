@@ -85,13 +85,11 @@
                   }"
                  :class="isVisible ? 'zoomIn animated' : ''" class="section-heading proposal__heading">
               <span
-                class="proposal__span">{{ $t('portfolio_page.we')}}
-                <span class="proposal__e letter-a" v-if="$i18n.locale === 'ru'"></span>,
+                class="proposal__span">{{ $t('portfolio_page.we')}}<span class="proposal__e letter-a" v-if="$i18n.locale === 'ru'"></span>,
               </span>
               <span class="proposal__span-second">{{ $t('portfolio_page.want') }}</span>
               <span>
-              <span class="proposal__bg">{{ $t('portfolio_page.have') }}
-                <span class="letter-a proposal__a"></span>{{  $t('portfolio_page.for')}}.</span>
+              <span class="proposal__bg">{{ $t('portfolio_page.have') }}<span class="letter-a proposal__a" v-if="$i18n.locale === 'ru'"></span>{{  $t('portfolio_page.for')}}.</span>
               </span>
             </div>
           </div>
@@ -169,10 +167,10 @@
                      once: true,
                      throttle: 1000,
                   }"
-                :class="isVisiblePortfolioDesc ? 'fadeInRight animated' : ''">{{ $t('portfolio_page.t') }}<span
-              class="proposal__a letter-a white-a"></span>{{ $t('portfolio_page.uch') }}<br> я
-              <span class="proposal__a letter-a white-e"></span>ще<br> н<span
-                class="proposal__a letter-a white-e"></span> видел</h2>
+                :class="isVisiblePortfolioDesc ? 'fadeInRight animated' : ''">{{ $t('portfolio_page.s') }}<span
+              class="proposal__a letter-a white-a" v-if="$i18n.locale === 'ru'"></span>{{ $t('portfolio_page.uch') }}<br> {{ $t('portfolio_page.i') }}
+              <span class="proposal__a letter-a white-e" v-if="$i18n.locale === 'ru'"></span>{{ $t('portfolio_page.sh') }}<br v-if="$i18n.locale === 'ru'"> {{ $t('portfolio_page.n') }}<span
+                class="proposal__a letter-a white-e" v-if="$i18n.locale === 'ru'"></span> {{ $t('portfolio_page.like')}}</h2>
           </div>
           <div class="col-lg-6 col-12 d-flex flex-wrap justify-content-between" v-for="item in chunk(portfolios, 6)">
 
@@ -202,7 +200,7 @@
               </nuxt-link>
             </template>
           </div>
-          <button class="portfolio__button consult-btn button glitch-btn" data-text="мне нужен результат"><span>мне нужен результат</span>
+          <button class="portfolio__button consult-btn button glitch-btn" @click="toggleModal"><span>{{ $t('portfolio_page.result')}}</span>
           </button>
         </div>
       </div>
@@ -217,14 +215,14 @@
                      once: true,
                   }"
                 :class="isVisibleBenefitsTitle ? 'zoomIn animated' : ''">
-                        <span class="benefits__heading-first" data-text="Меня">
-                           Меня
+                        <span class="benefits__heading-first">
+                           {{ $t('portfolio_page.me') }}
                         </span> <br>
-              <span class="benefits__heading-second" data-text="выбирают">
-                            выбир<span class="proposal__a letter-a  black-a"></span>ют
+              <span class="benefits__heading-second">
+                            {{ $t('portfolio_page.chose') }}<span class="proposal__a letter-a  black-a" v-if="$i18n.locale === 'ru'"></span>{{ $t('portfolio_page.en')}}
                         </span>
             </h2>
-            <div class="benefits__desc">Клиенты выбирают меня потому, что я делаю хорошо</div>
+            <div class="benefits__desc">{{ $t('portfolio_page.benefits') }}</div>
           </div>
           <div class="col-lg-5 col-xl-6">
             <ul class="benefits__list"
@@ -234,16 +232,16 @@
                   }"
                 :class="isVisibleBenefitsTitle ? 'fadeInRight animated' : ''">
               <li class="benefits__item">
-                <h4 class="benefits__title">5 лет</h4>
-                <p class="benefits__text">на рынке разработки</p>
+                <h4 class="benefits__title">{{ $t('portfolio_page.benefits1.title') }}</h4>
+                <p class="benefits__text">{{ $t('portfolio_page.benefits1.text') }}</p>
               </li>
               <li class="benefits__item">
-                <h4 class="benefits__title">Опыт</h4>
-                <p class="benefits__text">в различных нишах</p>
+                <h4 class="benefits__title">{{ $t('portfolio_page.benefits2.title') }}</h4>
+                <p class="benefits__text">{{ $t('portfolio_page.benefits2.text') }}</p>
               </li>
               <li class="benefits__item">
-                <h4 class="benefits__title">Результат</h4>
-                <p class="benefits__text">бескомпромиссный</p>
+                <h4 class="benefits__title">{{ $t('portfolio_page.benefits3.title') }}</h4>
+                <p class="benefits__text">{{ $t('portfolio_page.benefits3.text') }}</p>
               </li>
             </ul>
           </div>
@@ -256,8 +254,7 @@
                   }"
                    :class="isVisibleBenefitsCard ? 'fadeInDown animated' : ''">
                 <span class="benefits__tip">01</span>
-                С вашими идеями и моими решаниями
-                мы воплотим продукт который вам поможет
+                {{ $t('portfolio_page.benefits1.card') }}
               </div>
               <div class="benefits__card"
                    v-observe-visibility="{
@@ -266,8 +263,7 @@
                   }"
                    :class="isVisibleBenefitsCard ? 'fadeInDown animated' : ''">
                 <span class="benefits__tip">02</span>
-                Найдем дизайн решение достойное
-                Вашей ниши
+                {{ $t('portfolio_page.benefits2.card') }}
               </div>
               <div class="benefits__card"
                    v-observe-visibility="{
@@ -276,8 +272,7 @@
                     }"
                    :class="isVisibleBenefitsCard ? 'fadeInDown animated' : ''">
                 <span class="benefits__tip">03</span>
-                Мы работаем удаленно, в кофмортной
-                для вас и меня обстановке
+                {{ $t('portfolio_page.benefits3.card') }}
               </div>
             </div>
           </div>
@@ -293,10 +288,10 @@
                     callback: visibleLastChange,
                      once: true,
                 }"
-                :class="isVisibleLastChange ? 'fadeInLeft animated' : ''">Я н<span
-              class="proposal__a letter-a white-e"></span> буду
-              <span class="lastchance__span"><span class="lastchance__glich">умолять</span></span> в<span
-                class="proposal__a letter-a white-a"></span>с</h2>
+                :class="isVisibleLastChange ? 'fadeInLeft animated' : ''">{{ $t('portfolio_page.i') }} {{ $t('portfolio_page.will') }}<span
+              v-if="$i18n.locale === 'ru'"
+              class="proposal__a letter-a white-e"></span> {{ $t('portfolio_page.not') }}<span class="lastchance__span"><span class="lastchance__glich">{{ $t('portfolio_page.beg') }}</span></span> {{ $t('portfolio_page.you') }}<span
+                class="proposal__a letter-a white-a"  v-if="$i18n.locale === 'ru'"></span>{{ $t('portfolio_page.you2') }}</h2>
           </div>
           <div class="col-xl-5 d-flex justify-content-lg-end">
             <div class="lastchance__block"
@@ -305,9 +300,7 @@
                      once: true,
                 }"
                  :class="isVisibleLastChange ? 'fadeInRight animated' : ''">
-              Я буду <strong>рад</strong>
-              работать с вами, потому что ценю ваше время
-              и потребности так же, как и свои
+             {{ $t('portfolio_page.lastchance') }}
             </div>
           </div>
           <div class="col-12">
@@ -318,8 +311,8 @@
                      once: true,
                 }"
                  :class="isVisibleContacts ? 'fadeInDown animated' : ''">
-              <button @click="toggleModal" class="button lastchance__button glitch-btn" data-text="оставить заявку">
-                <span>оставить заявку</span></button>
+              <button @click="toggleModal" class="button lastchance__button glitch-btn">
+                <span>{{ $t('app.submit') }}</span></button>
               <a href="tel:+9187509500" class="phone">+7 (918) 750-95-00</a>
               <div class="social d-flex">
                 <a href="https://t.me/stick_qwe" target="_blank" rel="nofollow" class="social__item">telegram</a>
@@ -340,16 +333,16 @@
                   <span class="logo_dash"></span>
                 </div>
                 <span class="logo_name">
-                                Владислав
+                                {{ $t('me.name') }}
                             </span>
                 <span class="logo_surname">
-                                Булгаков
+                                {{ $t('me.lastname') }}
                             </span>
               </nuxt-link>
-              <div class="copyright">2021 Все права защищены</div>
+              <div class="copyright">{{  (new Date()).getFullYear() }} {{ $t('app.copyright')}}</div>
               <div @click="scrollTo" class="goup d-flex">
                 <p class="goup_text">
-                  Наверх
+                  {{ $t('app.up')}}
                 </p>
                 <svg class="goup_triangle" xmlns="http://www.w3.org/2000/svg" version="1.1">
                   <polygon points="7.5,0 15,15 0,15"/>

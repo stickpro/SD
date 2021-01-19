@@ -103,6 +103,29 @@ export default {
   components:  {
     FooterNavigation,
   },
+  head() {
+    return {
+      title: this.portfolio.seo_title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.portfolio.seo_description
+        },
+
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.portfolio.seo_title
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.portfolio.seo_description
+        },
+      ]
+    }
+  },
   computed: {
     ...mapGetters({
       portfolio: 'portfolio/getPortfolio'

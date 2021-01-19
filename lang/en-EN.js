@@ -65,17 +65,47 @@ export default {
     desc1: 'If you are tired of studying information about creating sites.',
     desc2: 'You can calm down - you have come to the right place to the right person.',
     consult: 'order a consultation',
-    learn: 'узнать больше',
+    learn: 'To learn more',
     we: 'we',
     want: 'have everything',
     have: 'you are looking',
-    for: 'for',
+    for: ' for',
     proposal: 'Usually, in this place, companies talk about what types of sites they make, as well as incomprehensible other words like php, nginx, docker they know',
     prop_title: 'I don\'t want to tire you. I do everything.',
     prop_desc: 'Everything related to web technologies, sites and what surrounds them.',
     prop_text: 'We can contact you right now to hear your problems and offer our solution',
-    s: 'S',
-    uch: 'uch',
+    s: 'I\'ve never',
+    uch: 'seen',
+    i: 'anything',
+    sh: 'like',
+    n: '',
+    like: 'this',
+    result: 'i need a result',
+    me: 'I am',
+    chose: 'chos',
+    en: 'en',
+    benefits: 'Clients choose me because I do well',
+    benefits1: {
+      title: '6 years',
+      text: 'in development',
+      card: 'With your ideas and my solutions, we will implement a product that will help you'
+    },
+    benefits2: {
+      title: 'experience',
+      text: 'in various niches',
+      card: 'We will find a design solution worthy of your niche'
+    },
+    benefits3: {
+      title: 'uncompromising',
+      text: 'result',
+      card: 'We work remotely, in a comfortable environment for you and me'
+    },
+    will: 'will',
+    not: '',
+    beg: 'not beg',
+    you: 'you',
+    you2: 'с',
+    lastchance: 'I will be glad to work with you because I value your time and needs as well as mine.'
   },
   modal: {
     start: 'Let\'s get',
@@ -104,6 +134,7 @@ export default {
   },
   app: {
     up: 'up',
-    submit: 'Contact\'s me'
+    submit: 'Contact\'s me',
+    copyright: 'All rights reserved'
   }
 }
