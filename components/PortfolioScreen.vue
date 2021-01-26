@@ -235,7 +235,7 @@ export default {
     })
   },
   created() {
-    this.loadPortfolios({show_home: true})
+    this.loadPortfolios({show_home: 1})
   },
 };
 </script>

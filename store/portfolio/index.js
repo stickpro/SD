@@ -24,7 +24,7 @@ export const mutations = {
 
 export const actions = {
   async loadPortfolios({commit}, params) {
-    const {data} = await this.$axios.$get('/api/portfolios', params)
+    const {data} = await this.$axios.$get('/api/portfolios', { params: params })
     commit('SET_PORTFOLIOS', data)
   },
   async loadPortfolio({commit}, slug) {

@@ -2853,7 +2853,9 @@ h1 {
 }
 
 .portfolio-item {
-  float: left;
+  float: right;
+  min-width: 23%;
+  min-height: 220px;
   margin-right: 33px;
 
   &:last-child {
