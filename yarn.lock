@@ -4231,14 +4231,6 @@ fstream@^1.0.0, fstream@^1.0.12:
     mkdirp ">=0.5 0"
     rimraf "2"
 
-fullpage-nuxt-module@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/fullpage-nuxt-module/-/fullpage-nuxt-module-1.0.0.tgz#8afd1ed9ec9677755a8957cd32b2c1e3ecfe3167"
-  integrity sha512-eX8dcCa2FbFqfCtU2fGeyqHyi4WZZTklGu3Bs9tVhWeDwrYJ0E07LxYnz8oAZDnG1FfpFclg74q223+/iWrhnQ==
-  dependencies:
-    fullpage.js "^3.0.9"
-    vue-fullpage.js "^0.1.6"
-
 fullpage.js@^3.0.4, fullpage.js@^3.0.8:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/fullpage.js/-/fullpage.js-3.0.8.tgz#4d89a87d36c30c0866c3dfec5e6cb363902f97b2"

@@ -49,7 +49,8 @@ export default {
   plugins: [
     '@/plugins/anime.js',
     '@/plugins/VueObserver.js',
-    {src: '~/plugins/splide.client.js', ssr:false}
+    {src: '~/plugins/splide.client.js', ssr:false},
+    { src: '~/plugins/fullpage.js', mode: 'client' }
   ],
   /*
   ** Auto import components
@@ -69,7 +70,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // fullpage scroll
-    'nuxt-fullpage.js',
+    //'nuxt-fullpage.js',
     // svg sprite
     '@nuxtjs/svg-sprite',
     // Doc: https://cloudinary.nuxtjs.org/
