@@ -1,5 +1,4 @@
 <template>
-  <client-only>
     <full-page :options="options" ref="fullpage" id="fullpage">
       <FirstScreen :config.sync="firstSection"/>
       <SecondScreen :config.sync="secondSection"/>
@@ -9,7 +8,6 @@
       <Menu :config.sync="menuSection"/>
       <ModalWork/>
     </full-page>
-  </client-only>
 </template>
 
 <script>
@@ -156,8 +154,8 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
-::v-deep #fullpage {
+<style lang="scss">
+
   @import '@/assets/scss/main.scss';
-}
+
 </style>
