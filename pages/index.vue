@@ -1,4 +1,5 @@
 <template>
+  <no-ssr>
       <full-page :options="options" ref="fullpage" id="fullpage">
         <FirstScreen :config.sync="firstSection"/>
         <SecondScreen :config.sync="secondSection"/>
@@ -8,6 +9,7 @@
         <Menu :config.sync="menuSection"/>
         <ModalWork/>
       </full-page>
+  </no-ssr>
 </template>
 
 <script>
