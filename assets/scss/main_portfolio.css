@@ -789,7 +789,7 @@ input:focus:-moz-input-placeholder {
 }
 
 .nav-bar {
-  padding: 90px 0 40px;
+  padding: 60px 0 40px;
 }
 
 .logo {
@@ -913,23 +913,12 @@ footer .logo_dash {
 }
 
 .social__item {
+  margin: 0 12px;
+  width: 20px;
+  height: 20px;
   display: block;
-  margin: 0px 25px;
-  color: #2d2d2d;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  font-weight: 500;
-  -webkit-animation-delay: 0.5s;
-  animation-delay: 0.5s;
-}
-
-header .social {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  position: absolute;
-  left: -175px;
-  z-index: 333;
-  bottom: 250px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .main-header,
@@ -940,6 +929,20 @@ header .social {
 .social__item:hover,
 .phone:hover {
   color: #fd7878;
+}
+.social__item:hover svg {
+  fill: #fd7878;
+}
+
+.social__item svg {
+  fill: #2d2d2d;
+  width: 20px;
+  height: 20px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.social__item:last-of-type {
+  margin-right: 0;
 }
 
 .portfolio__title {
@@ -2947,10 +2950,6 @@ footer .logo {
   margin-right: 10px;
 }
 
-.header-case .nav-bar {
-  padding-top: 75px;
-}
-
 .header-case {
   position: relative;
   padding-bottom: 170px;
@@ -4399,6 +4398,43 @@ footer .logo {
   footer .social {
     margin-top: 40px;
   }
+  .social,
+  header .social {
+    margin-top: 15px;
+    margin-left: 0;
+  }
+
+  header .mail {
+    margin-right: 0;
+  }
+
+  .mail,
+  .phone {
+    display: block;
+    margin-left: auto;
+    text-align: right;
+
+  }
+
+  .mail {
+
+    max-width: 135px;
+  }
+
+  header .mail {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .mail:first-of-type {
+    max-width: 140px;
+  }
+  .lang {
+    max-width: 30px;
+    margin-left: auto!important;
+    text-align: right;
+  }
+
 }
 
 @media screen and (max-width: 767px) {
@@ -4663,6 +4699,9 @@ footer .logo {
   .thanks {
     width: 290px;
     margin-left: -145px;
+  }
+  .nav-bar {
+    padding: 25px 0 20px;
   }
 
   .main-header {
@@ -5129,6 +5168,9 @@ footer .logo {
   .navigation__arrows {
     margin-top: 0;
   }
+  .social, header .social {
+    margin-left: 0;
+  }
 
 }
 
@@ -5203,10 +5245,6 @@ footer .logo {
 }
 
 @media screen and (max-width: 440px) {
-  .logo {
-    margin-bottom: 5px;
-  }
-
   .call-form {
     max-width: 290px;
     padding: 45px 20px;
@@ -5471,3 +5509,27 @@ footer .logo {
     margin-bottom: 43px;
   }
 }
+.lang {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  display: flex;
+  flex-flow: column;
+  margin-left: 10px;
+}
+.lang__name {
+   padding: 5px;
+   color: #2d2d2d;
+   transition: background-color 0.5s ease;
+ }
+.lang__name:hover {
+   background-color: #fd7878;
+ }
+
+.lang--active {
+   border-top: 1px solid #fd7878;
+   border-bottom: 1px solid #fd7878;
+ }

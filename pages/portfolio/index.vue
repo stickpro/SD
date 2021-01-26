@@ -12,15 +12,40 @@
               <span class="logo_dash"></span>
             </div>
             <span class="logo_name">
-                        {{ $t('me.name') }}
-                    </span>
+          {{ $t('me.name') }}
+        </span>
             <span class="logo_surname">
-                        {{ $t('me.lastname') }}
-                    </span>
+          {{ $t('me.lastname') }}
+        </span>
           </nuxt-link>
-          <div class="contacts animated fadeInRight">
-            <a href="mailto:hello@d-b.ag" class="mail">info@stick-design.ru</a>
-            <a href="tel:+38978690538" class="phone">+7 (918) 750-95-00</a>
+          <div class="contacts animated fadeInRight d-lg-flex align-items-center fadeInDown">
+            <a href="https://www.instagram.com/stick_qwe/" class="mail" target="_blank">instagram: stick_qwe</a>
+            <a href="mailto:info@stick-design.ru" class="mail">info@stick-design.ru</a>
+            <a href="tel:+79187509500" class="phone">+7 (918) 750-95-00</a>
+            <div class="social d-flex">
+              <a href="tg://resolve?domain=stick_qwe" target="_blank" rel="nofollow"
+                 class="social__item animated fadeInLeft">
+                <svg-icon name="telegram" width="20px" height="20px"/>
+              </a>
+              <a href="https://api.whatsapp.com/send?phone=79187509500" target="_blank" rel="nofollow"
+                 class="social__item animated fadeInLeft">
+                <svg-icon name="whatsapp" width="20px" height="20px"/>
+              </a>
+              <a href="skype:stick_qwe?chat" target="_blank" rel="nofollow" class="social__item animated fadeInLeft">
+                <svg-icon name="skype" width="20px" height="20px"/>
+              </a>
+              <a href="https://vk.com/id383968" target="_blank" rel="nofollow" class="social__item animated fadeInLeft">
+                <svg-icon name="vk" width="20px" height="20px"/>
+              </a>
+            </div>
+            <div class="lang">
+              <nuxt-link class="lang__name"
+                         :class="$i18n.locale === 'ru' ? 'lang--active' : ''"
+                         :to="switchLocalePath('ru')"><span></span>ru</nuxt-link>
+              <nuxt-link class="lang__name"
+                         :class="$i18n.locale === 'en' ? 'lang--active' : ''"
+                         :to="switchLocalePath('en')">en</nuxt-link>
+            </div>
           </div>
         </div>
       </nav>
@@ -51,15 +76,6 @@
                     <span class="line-3"></span>
                     <span class="line-4"></span></nuxt-link>
                 </div>
-              </div>
-              <div class="social d-flex justify-content-center">
-                <a href="https://t.me/stick_qwe" target="_blank" rel="nofollow"
-                   class="social__item animated fadeInLeft">telegram</a>
-                <a href="https://api.whatsapp.com/send?phone=9187509500" target="_blank" rel="nofollow"
-                   class="social__item animated fadeInLeft">whatsapp</a>
-                <a href="https://vk.com/id383968" target="_blank" rel="nofollow"
-                   class="social__item animated fadeInLeft">vk</a>
-                <a href="skype:stick_25?chat" target="_blank" rel="nofollow" class="social__item animated fadeInLeft">skype</a>
               </div>
             </div>
           </div>
@@ -372,14 +388,12 @@
 </template>
 
 <script>
-import HeaderSection from "@/components/portfolio/HeaderSection";
 import ModalWork from "@/components/ModalWork";
 import {mapActions, mapGetters, mapMutations} from "vuex";
 export default {
   name: "portfolio",
   transition: 'intro',
   components: {
-    HeaderSection,
     ModalWork,
   },
   data() {
@@ -451,8 +465,10 @@ export default {
 
     imgPortfolio(src) {
       return this.$cloudinary.image.url(src, {
+        crop: 'scale',
         fetchFormat: 'auto',
         quality: '100',
+        width: 745,
       })
     },
     ...mapMutations({
@@ -466,10 +482,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~assets/scss/grid.scss";
+::v-deep {
 
+@import "~assets/scss/grid.scss";
 @import "~assets/scss/main_portfolio.css";
 
+}
 
 .zoomIn-enter-active {
   animation: zoomIn .5s;

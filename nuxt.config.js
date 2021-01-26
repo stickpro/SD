@@ -130,6 +130,10 @@ export default {
     ],
   },
 
+  router: {
+    middleware: ['language']
+  },
+
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
