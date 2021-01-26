@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <client-only>
     <full-page :options="options" ref="fullpage" id="fullpage">
       <FirstScreen :config.sync="firstSection"/>
       <SecondScreen :config.sync="secondSection"/>
@@ -9,7 +9,7 @@
       <Menu :config.sync="menuSection"/>
       <ModalWork/>
     </full-page>
-  </div>
+  </client-only>
 </template>
 
 <script>
