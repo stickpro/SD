@@ -69,7 +69,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // fullpage scroll
-    'nuxt-fullpage.js',
+    // 'nuxt-fullpage.js',
+    'fullpage-nuxt-module',
     // svg sprite
     '@nuxtjs/svg-sprite',
     // Doc: https://cloudinary.nuxtjs.org/
