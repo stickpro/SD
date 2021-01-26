@@ -1,13 +1,13 @@
 <template>
-    <full-page :options="options" ref="fullpage" id="fullpage">
-      <FirstScreen :config.sync="firstSection"/>
-      <SecondScreen :config.sync="secondSection"/>
-      <PortfolioScreen :config.sync="portfolioSection"/>
-      <ServiceScreen :config.sync="serviceSection"/>
-      <FooterScreen :config.sync="footerSection"/>
-      <Menu :config.sync="menuSection"/>
-      <ModalWork/>
-    </full-page>
+      <full-page :options="options" ref="fullpage" id="fullpage">
+        <FirstScreen :config.sync="firstSection"/>
+        <SecondScreen :config.sync="secondSection"/>
+        <PortfolioScreen :config.sync="portfolioSection"/>
+        <ServiceScreen :config.sync="serviceSection"/>
+        <FooterScreen :config.sync="footerSection"/>
+        <Menu :config.sync="menuSection"/>
+        <ModalWork/>
+      </full-page>
 </template>
 
 <script>
@@ -144,18 +144,19 @@ export default {
     }
   },
   mounted() {
-    this.firstSection.fullpageApi = this.$refs.fullpage.api;
-    this.secondSection.fullpageApi = this.$refs.fullpage.api;
-    this.portfolioSection.fullpageApi = this.$refs.fullpage.api;
-    this.serviceSection.fullpageApi = this.$refs.fullpage.api;
-    this.footerSection.fullpageApi = this.$refs.fullpage.api;
 
-    this.menuSection.fullpageApi = this.$refs.fullpage.api;
+      this.firstSection.fullpageApi = this.$refs.fullpage.api;
+      this.secondSection.fullpageApi = this.$refs.fullpage.api;
+      this.portfolioSection.fullpageApi = this.$refs.fullpage.api;
+      this.serviceSection.fullpageApi = this.$refs.fullpage.api;
+      this.footerSection.fullpageApi = this.$refs.fullpage.api;
+
+      this.menuSection.fullpageApi = this.$refs.fullpage.api;
   }
 };
 </script>
 <style lang="scss">
-
+ #fullpage {
   @import '@/assets/scss/main.scss';
-
+}
 </style>
