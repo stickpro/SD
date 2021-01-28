@@ -77,7 +77,7 @@ export default {
     '@nuxtjs/cloudinary',
     '@nuxtjs/dotenv',
     'nuxt-i18n',
-
+    '@nuxtjs/yandex-metrika',
     //all time in end
     '@nuxtjs/sitemap',
   ],
@@ -130,6 +130,16 @@ export default {
       '/_icons',
     ],
   },
+
+  yandexMetrika: {
+    id: process.env.YANDEX_METRIKA,
+    webvisor: true,
+    clickmap:true,
+    useCDN:false,
+    trackLinks:true,
+    accurateTrackBounce:true,
+  },
+
 
   router: {
     middleware: ['language']
