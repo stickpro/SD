@@ -179,13 +179,13 @@ export default {
       'default-detect',
     ],
 
-    // 👇🏻 Type: `default-detect`
-    headerNameForDefaultDetection: 'user-agent', // The `header-key` base for `MobileDetection`, usage `request.headers[ headerNameForDefaultDetection ]`
-    auditUserAgent: 'lighthouse', // prune if `request.header[ headerNameForDefaultDetection ]` match, could be a string or an array of strings
-    isAudit: true, // remove selectors if match with `auditUserAgent`
-    isBot: true, // remove selectors if is a bot
-    ignoreBotOrAudit: false, // remove selectors in any case, not depending on Bot or Audit
-    matchUserAgent: null, // prune if `request.header[ headerNameForDefaultDetection ]` match, could be a string or an array of strings
+    // // 👇🏻 Type: `default-detect`
+    // headerNameForDefaultDetection: 'user-agent', // The `header-key` base for `MobileDetection`, usage `request.headers[ headerNameForDefaultDetection ]`
+    // auditUserAgent: 'lighthouse', // prune if `request.header[ headerNameForDefaultDetection ]` match, could be a string or an array of strings
+    // isAudit: true, // remove selectors if match with `auditUserAgent`
+    // isBot: true, // remove selectors if is a bot
+    // ignoreBotOrAudit: false, // remove selectors in any case, not depending on Bot or Audit
+    // matchUserAgent: null, // prune if `request.header[ headerNameForDefaultDetection ]` match, could be a string or an array of strings
 
     // 👇🏻 Type: 'query-parameters'
     queryParametersToPrune: [
