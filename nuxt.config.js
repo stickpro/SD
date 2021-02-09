@@ -80,7 +80,6 @@ export default {
     '@nuxtjs/yandex-metrika',
     //all time in end
     '@nuxtjs/sitemap',
-    'nuxt-purgecss',
   ],
   /*
   ** Axios module configuration
