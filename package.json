@@ -10,6 +10,7 @@
     "serve": "nuxt serve"
   },
   "dependencies": {
+    "@luxdamore/nuxt-prune-html": "^2.0.6",
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/cloudinary": "^1.0.3-beta-2",
     "@nuxtjs/dotenv": "^1.4.1",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "node-sass": "^4.14.1",
+    "nuxt-purgecss": "^1.0.0",
     "sass-loader": "^9.0.1"
   }
 }

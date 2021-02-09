@@ -1,5 +1,5 @@
 <template>
-  <no-ssr>
+  <client-only>
       <full-page :options="options" ref="fullpage" id="fullpage">
         <FirstScreen :config.sync="firstSection"/>
         <SecondScreen :config.sync="secondSection"/>
@@ -9,7 +9,7 @@
         <Menu :config.sync="menuSection"/>
         <ModalWork/>
       </full-page>
-  </no-ssr>
+  </client-only>
 </template>
 
 <script>
@@ -104,6 +104,15 @@ export default {
   },
   methods: {
     afterLoad: function (origin, destination, direction) {
+
+      this.firstSection.fullpageApi = this.$refs.fullpage.api;
+      this.secondSection.fullpageApi = this.$refs.fullpage.api;
+      this.portfolioSection.fullpageApi = this.$refs.fullpage.api;
+      this.serviceSection.fullpageApi = this.$refs.fullpage.api;
+      this.footerSection.fullpageApi = this.$refs.fullpage.api;
+
+      this.menuSection.fullpageApi = this.$refs.fullpage.api;
+
       if (destination.index == 1) {
         this.firstSection.animation = false;
         //this.firstSection.menuBlack = true;
@@ -147,13 +156,6 @@ export default {
   },
   mounted() {
 
-      this.firstSection.fullpageApi = this.$refs.fullpage.api;
-      this.secondSection.fullpageApi = this.$refs.fullpage.api;
-      this.portfolioSection.fullpageApi = this.$refs.fullpage.api;
-      this.serviceSection.fullpageApi = this.$refs.fullpage.api;
-      this.footerSection.fullpageApi = this.$refs.fullpage.api;
-
-      this.menuSection.fullpageApi = this.$refs.fullpage.api;
   }
 };
 </script>

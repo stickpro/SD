@@ -59,9 +59,9 @@
                 <div class="case__desc fadeInLeft animated">
                   {{ portfolio.description }}
                 </div>
-                <nuxt-link :to="portfolio.external_link" target="_blank" class="case__link fadeInUp animated">
+                <a :href="portfolio.external_link" target="_blank" class="case__link fadeInUp animated">
                   {{ portfolio.external_link }}
-                </nuxt-link>
+                </a>
               </div>
             </div>
           </div>
